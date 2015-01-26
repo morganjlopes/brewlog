@@ -1,4 +1,6 @@
 class Batch < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history, :finders]
 
   DIFFICULTY_EASY       = 1
   DIFFICULTY_MEDIUM     = 2
