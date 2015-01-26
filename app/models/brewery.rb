@@ -6,4 +6,6 @@ class Brewery < ActiveRecord::Base
   has_many :users, through: :brewery_users
 
   has_many :batches
+
+  validates_presence_of :name
 end

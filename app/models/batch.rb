@@ -4,6 +4,10 @@ class Batch < ActiveRecord::Base
 
   belongs_to :brewery
 
+  validates_presence_of :name,
+                        :projected_volume_in_gallons,
+                        :projected_alcohol_by_volume
+
   DIFFICULTY_EASY       = 1
   DIFFICULTY_MEDIUM     = 2
   DIFFICULTY_DIFFICULT  = 3
