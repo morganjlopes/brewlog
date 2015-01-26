@@ -1,0 +1,21 @@
+= simple_form_for(@batch) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :target_volume_in_gallons
+    = f.input :actual_volume_in_gallons
+    = f.input :original_gravity
+    = f.input :final_gravity
+    = f.input :alcohol_by_volume
+    = f.input :color
+    = f.input :difficulty
+    = f.input :brew_date
+    = f.input :secondary_transition_date
+    = f.input :bottle_date
+    = f.input :condition_date
+    = f.input :slug
+
+  .form-actions
+    = f.button :submit

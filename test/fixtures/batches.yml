@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  target_volume_in_gallons: 9.99
+  actual_volume_in_gallons: 9.99
+  original_gravity: 9.99
+  final_gravity: 9.99
+  alcohol_by_volume: 9.99
+  color: MyString
+  difficulty: 1
+  brew_date: 2015-01-25
+  secondary_transition_date: 2015-01-25
+  bottle_date: 2015-01-25
+  condition_date: 2015-01-25
+  slug: MyString
+
+two:
+  name: MyString
+  description: MyText
+  target_volume_in_gallons: 9.99
+  actual_volume_in_gallons: 9.99
+  original_gravity: 9.99
+  final_gravity: 9.99
+  alcohol_by_volume: 9.99
+  color: MyString
+  difficulty: 1
+  brew_date: 2015-01-25
+  secondary_transition_date: 2015-01-25
+  bottle_date: 2015-01-25
+  condition_date: 2015-01-25
+  slug: MyString
