@@ -1,47 +1,23 @@
-%h1 Listing batches
+.container
+  %h1 Listing batches
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th Target volume in gallons
-      %th Actual volume in gallons
-      %th Original gravity
-      %th Final gravity
-      %th Alcohol by volume
-      %th Color
-      %th Difficulty
-      %th Brew date
-      %th Secondary transition date
-      %th Bottle date
-      %th Condition date
-      %th Slug
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @batches.each do |batch|
+  %table.table
+    %thead
       %tr
-        %td= batch.name
-        %td= batch.description
-        %td= batch.target_volume_in_gallons
-        %td= batch.actual_volume_in_gallons
-        %td= batch.original_gravity
-        %td= batch.final_gravity
-        %td= batch.alcohol_by_volume
-        %td= batch.color
-        %td= batch.difficulty
-        %td= batch.brew_date
-        %td= batch.secondary_transition_date
-        %td= batch.bottle_date
-        %td= batch.condition_date
-        %td= batch.slug
-        %td= link_to 'Show', batch
-        %td= link_to 'Edit', edit_batch_path(batch)
-        %td= link_to 'Destroy', batch, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th Brew date
+        %th
+        %th
+        
+    %tbody
+      - @batches.each do |batch|
+        %tr
+          %td= batch.name
+          %td= batch.actual_brew_date
+          %td.text-right
+            = link_to 'Show', batch, :class => "btn btn-default btn-sm"
+            = link_to 'Edit', edit_batch_path(batch), :class => "btn btn-default btn-sm"
 
-%br
+  %br
 
-= link_to 'New Batch', new_batch_path
+  = link_to 'New Batch', new_batch_path, :class => "btn btn-primary"

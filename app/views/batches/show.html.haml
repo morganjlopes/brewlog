@@ -1,48 +1,47 @@
-%p#notice= notice
+.container
 
-%p
-  %b Name:
-  = @batch.name
-%p
-  %b Description:
-  = @batch.description
-%p
-  %b Target volume in gallons:
-  = @batch.target_volume_in_gallons
-%p
-  %b Actual volume in gallons:
-  = @batch.actual_volume_in_gallons
-%p
-  %b Original gravity:
-  = @batch.original_gravity
-%p
-  %b Final gravity:
-  = @batch.final_gravity
-%p
-  %b Alcohol by volume:
-  = @batch.alcohol_by_volume
-%p
-  %b Color:
-  = @batch.color
-%p
-  %b Difficulty:
-  = @batch.difficulty
-%p
-  %b Brew date:
-  = @batch.brew_date
-%p
-  %b Secondary transition date:
-  = @batch.secondary_transition_date
-%p
-  %b Bottle date:
-  = @batch.bottle_date
-%p
-  %b Condition date:
-  = @batch.condition_date
-%p
-  %b Slug:
-  = @batch.slug
+  %h1
+    = @batch.name
+  %p
+    %b Description:
+    = @batch.description
+  %p
+    %b Target volume in gallons:
+    = @batch.target_volume_in_gallons
+  %p
+    %b Actual volume in gallons:
+    = @batch.actual_volume_in_gallons
+  %p
+    %b Original gravity:
+    = @batch.original_gravity
+  %p
+    %b Final gravity:
+    = @batch.final_gravity
+  %p
+    %b Alcohol by volume:
+    = @batch.alcohol_by_volume
+  %p
+    %b Color:
+    = @batch.color
+  %p
+    %b Difficulty:
+    = @batch.difficulty
+  %p
+    %b Brew date:
+    = @batch.brew_date
+  %p
+    %b Secondary transition date:
+    = @batch.secondary_transition_date
+  %p
+    %b Bottle date:
+    = @batch.bottle_date
+  %p
+    %b Condition date:
+    = @batch.condition_date
+  %p
+    %b Slug:
+    = @batch.slug
 
-= link_to 'Edit', edit_batch_path(@batch)
-\|
-= link_to 'Back', batches_path
+  = link_to 'Edit', edit_batch_path(@batch)
+  \|
+  = link_to 'Back', batches_path

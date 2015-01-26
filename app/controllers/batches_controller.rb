@@ -69,6 +69,24 @@ class BatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
-      params.require(:batch).permit(:name, :description, :target_volume_in_gallons, :actual_volume_in_gallons, :original_gravity, :final_gravity, :alcohol_by_volume, :color, :difficulty, :brew_date, :secondary_transition_date, :bottle_date, :condition_date, :slug)
+      params.require(:batch).permit(:name,
+                                    :description,
+                                    :projected_volume_in_gallons,
+                                    :projected_alcohol_by_volume,
+                                    :projected_original_gravity,
+                                    :projected_final_gravity,
+                                    :projected_secondary_transition_date,
+                                    :projected_bottle_date,
+                                    :projected_condition_date,
+                                    :actual_original_gravity,
+                                    :actual_final_gravity,
+                                    :actual_alcohol_by_volume,
+                                    :actual_brew_date,
+                                    :actual_secondary_transition_date,
+                                    :actual_bottle_date,
+                                    :actual_condition_date,
+                                    :color,
+                                    :difficulty,
+                                    :secondary_transition_date)
     end
 end
