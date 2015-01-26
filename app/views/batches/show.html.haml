@@ -5,42 +5,62 @@
   %p
     %b Description:
     = @batch.description
-  %p
-    %b Target volume in gallons:
-    = @batch.target_volume_in_gallons
-  %p
-    %b Actual volume in gallons:
-    = @batch.actual_volume_in_gallons
-  %p
-    %b Original gravity:
-    = @batch.original_gravity
-  %p
-    %b Final gravity:
-    = @batch.final_gravity
-  %p
-    %b Alcohol by volume:
-    = @batch.alcohol_by_volume
-  %p
-    %b Color:
-    = @batch.color
-  %p
-    %b Difficulty:
-    = @batch.difficulty
-  %p
-    %b Brew date:
-    = @batch.brew_date
-  %p
-    %b Secondary transition date:
-    = @batch.secondary_transition_date
-  %p
-    %b Bottle date:
-    = @batch.bottle_date
-  %p
-    %b Condition date:
-    = @batch.condition_date
-  %p
-    %b Slug:
-    = @batch.slug
+
+  .row
+    .col-sm-6
+      %h3
+        Projections
+      %p
+        %b projected_volume_in_gallons
+        = pluralize(@batch.projected_volume_in_gallons, "gallon")
+      %p
+        %b projected_alcohol_by_volume
+        = number_to_percentage(@batch.projected_alcohol_by_volume, :precision => 2)
+      %p
+        %b projected_original_gravity
+        = @batch.projected_original_gravity
+      %p
+        %b projected_final_gravity
+        = @batch.projected_final_gravity
+      %p
+        %b projected_secondary_transition_date
+        = @batch.projected_secondary_transition_date
+      %p
+        %b projected_bottle_date
+        = @batch.projected_bottle_date
+      %p
+        %b projected_condition_date
+        = @batch.projected_condition_date
+    .col-sm-6
+      %h3
+        Actual
+      %p
+        %b actual_original_gravity
+        = @batch.actual_original_gravity
+      %p
+        %b actual_final_gravity
+        = @batch.actual_final_gravity
+      %p
+        %b actual_alcohol_by_volume
+        = @batch.actual_alcohol_by_volume
+      %p
+        %b actual_brew_date
+        = @batch.actual_brew_date
+      %p
+        %b actual_secondary_transition_date
+        = @batch.actual_secondary_transition_date
+      %p
+        %b actual_bottle_date
+        = @batch.actual_bottle_date
+      %p
+        %b actual_condition_date
+        = @batch.actual_condition_date
+      %p
+        %b color
+        = @batch.color
+      %p
+        %b difficulty
+        = @batch.difficulty
 
   = link_to 'Edit', edit_batch_path(@batch)
   \|

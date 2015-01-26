@@ -25,6 +25,7 @@ class BatchesController < ApplicationController
   # POST /batches.json
   def create
     @batch = Batch.new(batch_params)
+    @batch.actual_brew_date = Time.now
 
     respond_to do |format|
       if @batch.save
@@ -86,7 +87,6 @@ class BatchesController < ApplicationController
                                     :actual_bottle_date,
                                     :actual_condition_date,
                                     :color,
-                                    :difficulty,
-                                    :secondary_transition_date)
+                                    :difficulty)
     end
 end

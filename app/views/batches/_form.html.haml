@@ -9,27 +9,82 @@
       = f.input :actual_brew_date, :input_html => { :class => ""}, :label => false
     .form-group
       = f.input :difficulty, collection: Batch.difficulty_options, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control"}
-    - if @batch.id.present?
-      .form-group
-        = f.input :description, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :target_volume_in_gallons, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :actual_volume_in_gallons, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :original_gravity, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :final_gravity, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :alcohol_by_volume, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :color, :input_html => { :class => "form-control"}
-      .form-group
-        = f.input :secondary_transition_date, :input_html => { :class => ""}
-      .form-group
-        = f.input :bottle_date, :input_html => { :class => ""}
-      .form-group
-        = f.input :condition_date, :input_html => { :class => ""}
+
+  #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+    .panel.panel-default
+      #headingOne.panel-heading{:role => "tab", "aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+        %h4.panel-title
+          Brewing Day
+      #collapseOne.panel-collapse.collapse.in{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+        .panel-body
+          .row
+            .col-sm-3
+              .form-group
+                = f.label :projected_volume_in_gallons, "Volume Estimate"
+                .input-group
+                  = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
+                  .input-group-addon
+                    gal
+            .col-sm-3
+              .form-group
+                = f.label :projected_alcohol_by_volume, "ABV Estimate"
+                .input-group
+                  = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
+                  .input-group-addon %
+            .col-sm-3
+              .form-group
+                = f.input :projected_original_gravity, :input_html => { :class => "form-control" }, :label => "Projected  OG"
+            .col-sm-3
+              .form-group
+                = f.input :projected_final_gravity, :input_html => { :class => "form-control" }, :label => "Projected  FG"
+          .row
+            .col-sm-4
+              .form-group
+                = f.label :projected_secondary_transition_date, "Projected Secondary Date"
+                = f.input :projected_secondary_transition_date, :input_html => { :class => "" }, :label => false
+            .col-sm-4
+              .form-group
+                = f.label :projected_bottle_date, "Projected Bottle Date"
+                = f.input :projected_bottle_date, :input_html => { :class => "" }, :label => false
+            .col-sm-4
+              .form-group
+                = f.label :projected_condition_date, "Projected Condition Date"
+                = f.input :projected_condition_date, :input_html => { :class => "" }, :label => false
+    .panel.panel-default
+      #headingTwo.panel-heading.collapsed{:role => "tab", "aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+        %h4.panel-title
+          Bottling Day
+      #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
+        .panel-body
+          .form-group
+            = f.label :actual_bottle_date, "Bottle Date"
+            = f.input :actual_bottle_date, :input_html => { :class => "" }, :label => false
+          .row
+            .col-sm-3
+              .form-group
+                = f.label :actual_volume_in_gallons, "Volume"
+                .input-group
+                  = f.input :actual_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
+                  .input-group-addon
+                    gal
+            .col-sm-3
+              .form-group
+                = f.label :actual_alcohol_by_volume, "ABV"
+                .input-group
+                  = f.input :actual_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
+                  .input-group-addon %
+            .col-sm-3
+              .form-group
+                = f.input :actual_final_gravity, :input_html => { :class => "form-control" }, :label => "FG"
+    .panel.panel-default
+      #headingThree.panel-heading.collapsed{:role => "tab", "aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
+        %h4.panel-title
+          Conditioning Day
+      #collapseThree.panel-collapse.collapse{"aria-labelledby" => "headingThree", :role => "tabpanel"}
+        .panel-body
+          .form-group
+            = f.label :actual_condition_date, "Condition Date"
+            = f.input :actual_condition_date, :input_html => { :class => "" }, :label => false
 
   .form-actions
     = f.button :submit, :class => "btn btn-primary"

@@ -1,5 +1,5 @@
 .container
-  %h1 Listing batches
+  %h1 Batches
 
   %table.table
     %thead
@@ -17,7 +17,3 @@
           %td.text-right
             = link_to 'Show', batch, :class => "btn btn-default btn-sm"
             = link_to 'Edit', edit_batch_path(batch), :class => "btn btn-default btn-sm"
-
-  %br
-
-  = link_to 'New Batch', new_batch_path, :class => "btn btn-primary"
