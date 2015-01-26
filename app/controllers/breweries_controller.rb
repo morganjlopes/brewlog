@@ -1,10 +1,11 @@
 class BreweriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
 
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.all
+    @breweries = current_user.breweries.all
   end
 
   # GET /breweries/1
@@ -14,7 +15,7 @@ class BreweriesController < ApplicationController
 
   # GET /breweries/new
   def new
-    @brewery = Brewery.new
+    @brewery = current_user.breweries.new
   end
 
   # GET /breweries/1/edit
@@ -24,7 +25,8 @@ class BreweriesController < ApplicationController
   # POST /breweries
   # POST /breweries.json
   def create
-    @brewery = Brewery.new(brewery_params)
+    @brewery = current_user.breweries.new(brewery_params)
+    @brewery.users << current_user
 
     respond_to do |format|
       if @brewery.save
@@ -64,7 +66,7 @@ class BreweriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_brewery
-      @brewery = Brewery.find(params[:id])
+      @brewery = current_user.breweries.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
