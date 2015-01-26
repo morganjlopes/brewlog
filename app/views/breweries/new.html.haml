@@ -1,5 +1,10 @@
-%h1 New brewery
+.container
+  .row
+    .col-sm-4.col-sm-offset-4
+      .form-mini-wrapper
+        %h1 Add a Brewery
 
-= render 'form'
+        %p.lead.small
+          Batches are organized within breweries to keep things straight
 
-= link_to 'Back', breweries_path
+        = render 'form'

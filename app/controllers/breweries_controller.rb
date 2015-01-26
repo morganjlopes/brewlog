@@ -5,6 +5,9 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
+    if current_user.breweries.count < 1
+      redirect_to new_brewery_path, :notice => "Before you start brewing..."
+    end
     @breweries = current_user.breweries.all
   end
 

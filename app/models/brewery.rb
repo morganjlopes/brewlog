@@ -8,4 +8,13 @@ class Brewery < ActiveRecord::Base
   has_many :batches
 
   validates_presence_of :name
+
+  def total_volume_brewed
+    volume = 0
+    batches.each do |batch|
+      next unless batch.actual_volume_in_gallons.present?
+      volume += batch.actual_volume_in_gallons
+    end
+    volume
+  end
 end

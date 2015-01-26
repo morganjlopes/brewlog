@@ -11,9 +11,9 @@
     = render "layouts/navigation"
 
     -if notice
-      %p#notice= notice
+      %span#notice.alert.alert-success= notice
     -if alert
-      %p#notice= alert
+      %span#alert.alert.alert-danger= alert
 
     = yield
 
