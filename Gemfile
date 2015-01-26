@@ -18,6 +18,9 @@ gem "haml-rails"
 gem 'simple_form'
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'devise', :git => 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
+gem 'html2haml'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

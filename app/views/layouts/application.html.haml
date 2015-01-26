@@ -12,8 +12,10 @@
 
     -if notice
       %p#notice= notice
+    -if alert
+      %p#notice= alert
 
     = yield
 
-    - if @brewery.id.present?
+    - if @brewery.present? and @brewery.id
       =render "batches/new_modal"
