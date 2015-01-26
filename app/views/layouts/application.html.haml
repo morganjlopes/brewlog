@@ -15,4 +15,5 @@
 
     = yield
 
-    =render "batches/new_modal"
+    - if @brewery.id.present?
+      =render "batches/new_modal"

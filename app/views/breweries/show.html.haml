@@ -1,0 +1,11 @@
+
+%p
+  %b Name:
+  = @brewery.name
+%p
+  %b Slogan:
+  = @brewery.slogan
+
+= link_to 'Edit', edit_brewery_path(@brewery)
+\|
+= link_to 'Back', breweries_path

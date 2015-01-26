@@ -7,18 +7,25 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"} Brew Log
+      %a.navbar-brand{:href => "#"}
+        - if @brewery.id.present?
+          = @brewery.name
+        - else
+          Brew Log
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to "Batches", batches_path
-        %li
-          %a{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
-            New Batch
+        - if @brewery.id.present?
+          %li
+            = link_to "Batches", brewery_batches_path(@brewery)
+          %li
+            %a{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
+              New Batch
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{:href => "#"} Link
+          %a{:href => "#"} Tutorials
+        %li
+          %a{:href => "#"} Shop
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Morgan

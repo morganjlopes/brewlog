@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126103711) do
+ActiveRecord::Schema.define(version: 20150126104134) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20150126103711) do
     t.date     "actual_secondary_transition_date"
     t.date     "actual_bottle_date"
     t.date     "actual_condition_date"
+    t.integer  "brewery_id"
+  end
+
+  create_table "breweries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slogan"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

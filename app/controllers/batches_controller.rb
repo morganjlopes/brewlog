@@ -1,10 +1,11 @@
 class BatchesController < ApplicationController
+  before_action :set_brewery_from_url
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
 
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.all
+    @batches = @brewery.batches.all
   end
 
   # GET /batches/1
@@ -14,7 +15,7 @@ class BatchesController < ApplicationController
 
   # GET /batches/new
   def new
-    @batch = Batch.new
+    @batch = @brewery.batches.new
   end
 
   # GET /batches/1/edit
@@ -24,12 +25,12 @@ class BatchesController < ApplicationController
   # POST /batches
   # POST /batches.json
   def create
-    @batch = Batch.new(batch_params)
+    @batch = @brewery.batches.new(batch_params)
     @batch.actual_brew_date = Time.now
 
     respond_to do |format|
       if @batch.save
-        format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
+        format.html { redirect_to edit_brewery_batch_path(@brewery, @batch), notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
       else
         format.html { render :new }
@@ -63,9 +64,13 @@ class BatchesController < ApplicationController
   end
 
   private
+
+    def set_brewery_from_url
+      @brewery = Brewery.find(params[:brewery_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
-      @batch = Batch.find(params[:id])
+      @batch = @brewery.batches.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

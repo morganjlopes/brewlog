@@ -1,6 +1,8 @@
 class Batch < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :history, :finders]
+  friendly_id :name, use: [:slugged, :history, :finders, :scoped], :scope => :brewery
+
+  belongs_to :brewery
 
   DIFFICULTY_EASY       = 1
   DIFFICULTY_MEDIUM     = 2

@@ -1,8 +1,9 @@
+
 / Modal
 #newBatchModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "newBatchModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog.modal-sm
     .modal-content
-      = simple_form_for(Batch.new) do |f|
+      = simple_form_for([@brewery, @brewery.batches.new]) do |f|
         .modal-header
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} &times;
