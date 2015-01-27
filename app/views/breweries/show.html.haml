@@ -1,28 +1,6 @@
 .container
-  %h1
-    = @brewery.name
-  %p
-    %b Slogan:
-    = @brewery.slogan
-
-  %p
-    %b Batches
-    = pluralize(@brewery.batches.count, "batch")
-
-  %p 
-    %b Volume Brewed
-    = pluralize(@brewery.total_volume_brewed, "gallons")
-
-  %h3 Brewers
-
-  %table.table
-    %tr
-      %th
-        Email
-    - @brewery.users.each do |user|
-      %tr
-        %td
-          = user.email
-  = link_to 'Edit', edit_brewery_path(@brewery)
-  \|
-  = link_to 'Back', breweries_path
+  .row
+    .col-md-3
+      = render "breweries/vcard"
+    .col-md-9
+      = render "breweries/subnavigation"

@@ -1,0 +1,25 @@
+%h2
+  = @brewery.name
+%p
+  "#{@brewery.slogan}"
+
+%p
+  %b Batches
+  = pluralize(@brewery.batches.count, "batch")
+
+%p 
+  %b Volume Brewed
+  = pluralize(@brewery.total_volume_brewed, "gallons")
+
+%hr
+
+%h4 Brewers
+
+%table.table
+  %tr
+    %th
+      Email
+  - @brewery.users.each do |user|
+    %tr
+      %td
+        = user.email

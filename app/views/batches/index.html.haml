@@ -1,19 +1,32 @@
 .container
-  %h1
-    Batches
+  .row
+    .col-md-3
+      = render "breweries/vcard"
+    .col-md-9
+      = render "breweries/subnavigation"
 
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Brew date
-        %th
-        
-    %tbody
-      - @batches.each do |batch|
-        %tr
-          %td= batch.name
-          %td= batch.actual_brew_date
-          %td.text-right
-            = link_to 'Show', brewery_batch_path(@brewery, batch), :class => "btn btn-default btn-sm"
-            = link_to 'Edit', edit_brewery_batch_path(@brewery, batch), :class => "btn btn-default btn-sm"
+      #batch_action_wrapper
+        .row
+          .col-sm-6
+            .input-group
+              %input.form-control{:placeholder => "Find a Batch...", :type => "text"}/
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "button"} Search
+
+          .col-sm-6
+            %a{:class => "btn btn-primary pull-right", :href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
+              + New
+
+      %table.table
+            
+        %tbody
+          - @batches.each do |batch|
+            %tr
+              %td
+                %h3
+                  = link_to batch.name, brewery_batch_path(@brewery, batch)
+                %p.text-muted
+                  = batch.actual_brew_date.strftime("%B %e, %Y")
+              %td
+              %td.text-right
+                = link_to 'Edit', edit_brewery_batch_path(@brewery, batch), :class => "btn btn-default btn-sm"

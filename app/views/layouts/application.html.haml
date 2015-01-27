@@ -11,11 +11,16 @@
     = render "layouts/navigation"
 
     -if notice
-      %span#notice.alert.alert-success= notice
+      #notice.alert.alert-success= notice
     -if alert
-      %span#alert.alert.alert-danger= alert
+      #alert.alert.alert-danger= alert
 
     = yield
 
     - if @brewery.present? and @brewery.id
       =render "batches/new_modal"
+
+    %footer.footer
+      %ul.list-inline
+        %li
+          Brew Something Great!

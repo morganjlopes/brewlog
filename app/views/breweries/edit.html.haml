@@ -1,7 +1,9 @@
-%h1 Editing brewery
+.container
+  .row
+    .col-md-3
+      = render "breweries/vcard"
+    .col-md-9
+      = render "breweries/subnavigation"
+      %h1 Editing brewery
 
-= render 'form'
-
-= link_to 'Show', @brewery
-\|
-= link_to 'Back', breweries_path
+      = render 'form'

@@ -1,0 +1,17 @@
+#batch_header_wrapper
+  .container
+    %ul.pull-right.list-inline
+      %li
+        =link_to "Edit Batch", edit_brewery_batch_path(@brewery, @batch), :class => "btn btn-default btn-sm"
+
+    %ul.list-inline
+      %li
+        %h1
+          =link_to @brewery.name, brewery_path(@brewery)
+      %li
+        %h1 /
+      %li
+        %h1
+          =link_to @batch.name, brewery_batch_path(@brewery, @batch)
+
+%hr

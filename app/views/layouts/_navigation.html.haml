@@ -1,5 +1,5 @@
 %nav.navbar.navbar-default
-  .container-fluid
+  .container
     / Brand and toggle get grouped for better mobile display
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
@@ -7,24 +7,18 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      - if @brewery.present? and @brewery.id
-        = link_to @brewery.name, brewery_path(@brewery), :class => "navbar-brand"
-      - else
-        = link_to "Brew Log", root_url, :class => "navbar-brand"
+      = link_to "Brew Log", root_url, :class => "navbar-brand"
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        - if @brewery.present? and @brewery.id
-          %li
-            = link_to "Batches", brewery_batches_path(@brewery)
-          %li
-            %a{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
-              New Batch
-      %ul.nav.navbar-nav.navbar-right
         %li
           %a{:href => "#"} Tutorials
         %li
           %a{:href => "#"} Shop
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
+            + New Batch
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}

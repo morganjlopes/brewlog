@@ -6,6 +6,7 @@ class BatchesController < ApplicationController
   # GET /batches.json
   def index
     @batches = @brewery.batches.all
+    @tab_title = "brewery_batches"
   end
 
   # GET /batches/1
@@ -44,7 +45,7 @@ class BatchesController < ApplicationController
   def update
     respond_to do |format|
       if @batch.update(batch_params)
-        format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
+        format.html { redirect_to edit_brewery_batch_path(@brewery, @batch), notice: 'Batch was successfully updated.' }
         format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit }
