@@ -2,6 +2,8 @@ class Batch < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history, :finders, :scoped], :scope => :brewery
 
+  has_many :activities, as: :trackable
+  
   belongs_to :brewery
 
   validates_presence_of :name,

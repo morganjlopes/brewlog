@@ -1,3 +1,15 @@
 // Place all the styles related to the Breweries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#brewery_data_overview {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  h3 {
+    margin: 0px 0px 0px 0px;
+  }
+  p {
+    margin: 0px;
+  }
+}

@@ -6,6 +6,7 @@ class Brewery < ActiveRecord::Base
   has_many :users, through: :brewery_users
 
   has_many :batches
+  has_many :activities, as: :trackable
 
   validates_presence_of :name
 
@@ -16,5 +17,13 @@ class Brewery < ActiveRecord::Base
       volume += batch.actual_volume_in_gallons
     end
     volume
+  end
+
+  def collective_activity_log
+    all_activities = activities
+    batches.each do |batch|
+      all_activities += batch.activities
+    end
+    all_activities
   end
 end

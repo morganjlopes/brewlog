@@ -1,24 +1,23 @@
 %h2
   = @brewery.name
-%p
-  "#{@brewery.slogan}"
 
-%p
-  %b Batches
-  = pluralize(@brewery.batches.count, "batch")
+-if @brewery.slogan.present?
+  %p
+    "#{@brewery.slogan}"
 
-%p 
-  %b Volume Brewed
-  = pluralize(@brewery.total_volume_brewed, "gallons")
-
-%hr
+#brewery_data_overview
+  .row
+    .col-xs-6.text-center
+      %h3= @brewery.batches.count
+      %p Batches
+    .col-xs-6.text-center
+      %h3= @brewery.total_volume_brewed
+      %p Gallons
 
 %h4 Brewers
 
 %table.table
   %tr
-    %th
-      Email
   - @brewery.users.each do |user|
     %tr
       %td

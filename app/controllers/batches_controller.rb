@@ -1,6 +1,6 @@
 class BatchesController < ApplicationController
   before_action :set_brewery_from_url
-  before_action :set_batch, only: [:show, :edit, :update, :destroy]
+  before_action :set_batch, only: [:show, :edit, :update]
 
   # GET /batches
   # GET /batches.json
@@ -31,6 +31,7 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
+        track_activity @batch
         format.html { redirect_to edit_brewery_batch_path(@brewery, @batch), notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
       else
@@ -45,22 +46,13 @@ class BatchesController < ApplicationController
   def update
     respond_to do |format|
       if @batch.update(batch_params)
+        track_activity @batch
         format.html { redirect_to edit_brewery_batch_path(@brewery, @batch), notice: 'Batch was successfully updated.' }
         format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit }
         format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /batches/1
-  # DELETE /batches/1.json
-  def destroy
-    @batch.destroy
-    respond_to do |format|
-      format.html { redirect_to batches_url, notice: 'Batch was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

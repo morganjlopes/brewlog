@@ -4,3 +4,6 @@
       = render "breweries/vcard"
     .col-md-9
       = render "breweries/subnavigation"
+
+      - @activities.each do |activity|
+        = ActivityPresenter.new(activity, self).render_activity

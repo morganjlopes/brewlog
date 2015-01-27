@@ -2,6 +2,10 @@
 
 %ul.nav.nav-tabs
   %li{:role => "presentation", :class => ("active" if @tab_title == "brewery_home")}
-    = link_to "Dashboard", brewery_path(@brewery)
+    = link_to brewery_path(@brewery) do
+      .fa.fa-bullhorn
+      Activity
   %li{:role => "presentation", :class => ("active" if @tab_title == "brewery_batches")}
-    = link_to "Batches", brewery_batches_path(@brewery)
+    = link_to brewery_batches_path(@brewery) do
+      .fa.fa-book
+      Batches

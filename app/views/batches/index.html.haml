@@ -20,13 +20,21 @@
       %table.table
             
         %tbody
-          - @batches.each do |batch|
+          - if @batches.present?
+            - @batches.each do |batch|
+              %tr
+                %td
+                  %h3
+                    = link_to batch.name, brewery_batch_path(@brewery, batch)
+                  %p.text-muted
+                    = batch.actual_brew_date.strftime("%B %e, %Y")
+                %td
+                %td.text-right
+                  = link_to 'Edit', edit_brewery_batch_path(@brewery, batch), :class => "btn btn-default btn-sm"
+          -else
             %tr
-              %td
-                %h3
-                  = link_to batch.name, brewery_batch_path(@brewery, batch)
-                %p.text-muted
-                  = batch.actual_brew_date.strftime("%B %e, %Y")
-              %td
-              %td.text-right
-                = link_to 'Edit', edit_brewery_batch_path(@brewery, batch), :class => "btn btn-default btn-sm"
+              %td.text-center
+                %br
+                You haven't logged any batches yet.
+                %br
+                =link_to "Click here to log a batch.", "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"

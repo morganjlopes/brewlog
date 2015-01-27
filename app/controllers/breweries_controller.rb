@@ -1,6 +1,6 @@
 class BreweriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_brewery, only: [:show, :edit, :update, :destroy]
+  before_action :set_brewery, only: [:show, :edit, :update]
 
   # GET /breweries
   # GET /breweries.json
@@ -15,6 +15,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/1.json
   def show
     @tab_title = "brewery_home"
+    @activities = @brewery.collective_activity_log.sort_by{|e| e[:created_at]}.reverse
   end
 
   # GET /breweries/new
@@ -34,6 +35,7 @@ class BreweriesController < ApplicationController
 
     respond_to do |format|
       if @brewery.save
+        track_activity @brewery
         format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }
         format.json { render :show, status: :created, location: @brewery }
       else
@@ -48,22 +50,13 @@ class BreweriesController < ApplicationController
   def update
     respond_to do |format|
       if @brewery.update(brewery_params)
+        track_activity @brewery
         format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }
         format.json { render :show, status: :ok, location: @brewery }
       else
         format.html { render :edit }
         format.json { render json: @brewery.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /breweries/1
-  # DELETE /breweries/1.json
-  def destroy
-    @brewery.destroy
-    respond_to do |format|
-      format.html { redirect_to breweries_url, notice: 'Brewery was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
