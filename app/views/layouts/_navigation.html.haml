@@ -22,7 +22,8 @@
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              = current_user.email
+              Hi,
+              = current_user.first_name
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li

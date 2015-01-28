@@ -3,9 +3,10 @@
 
   .form-inputs
     .form-group
-    = f.input :name, :input_html => { :class => "form-control" }
-    .form-group
-    = f.input :slogan, :input_html => { :class => "form-control" }
+    = f.input :name, :input_html => { :class => "form-control floatlabel" }, :placeholder => "Brewery Name", :label => false
+    - if @brewery.id
+      .form-group
+      = f.input :slogan, :input_html => { :class => "form-control floatlabel" }, :placeholder => "Brewery Slogan", :label => false
 
   .form-actions
     = f.button :submit, :class => "btn btn-primary"
