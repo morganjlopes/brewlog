@@ -64,6 +64,22 @@ h1, .h1, h2, .h2, h3, .h3 {
   height: 50px;
 }
 
+.input-group-btn > .btn {
+  position: relative;
+  height: 42px;
+}
+
+.search_wrapper {
+  .form-control,
+  .input-group .form-control {
+    height: 33px;
+  }
+  .input-group-btn > .btn {
+    position: relative;
+    height: 33px;
+  }
+}
+
 label {
   top: 15px;
   left: 15px;

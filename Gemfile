@@ -11,6 +11,7 @@ gem 'activerecord-postgresql-adapter'
 gem 'rails_12factor'
 gem "rack-timeout"
 
+gem 'heroku'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
