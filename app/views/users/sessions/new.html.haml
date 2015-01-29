@@ -12,5 +12,8 @@
             .form-group
               = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
           .form-actions
-            = f.button :submit, "Log in", :class => "btn btn-primary"
-        = render "users/shared/links"
+            .row
+              .col-sm-8.col-sm-offset-2
+                = f.button :submit, "Log in", :class => "btn btn-primary btn-block btn-lg"
+            .text-center
+              = render "users/shared/links"

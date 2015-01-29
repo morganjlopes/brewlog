@@ -5,8 +5,6 @@
 
 .form-actions {
   margin-top: 20px;
-  border-top: 1px solid #ccc;
-  padding-top: 13px;
 }
 
 .navbar-default {
@@ -96,4 +94,14 @@ label {
 
 .hidden-toggle {
   display: none;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: -14px;
+  margin-top: 2px;
+}
+
+.users_shared_links_wrapper {
+  margin-top: 10px;
 }

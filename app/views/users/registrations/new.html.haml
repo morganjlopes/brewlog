@@ -15,5 +15,8 @@
             .form-group
               = f.input :password_confirmation, required: true, :input_html => { :class => "form-control floatlabel" }, :label => false, :placeholder => "Password Confirmation"
           .form-actions
-            = f.button :submit, "Sign up", :class => "btn btn-primary"
-        = render "users/shared/links"
+            .row
+              .col-sm-8.col-sm-offset-2
+                = f.button :submit, "Sign up", :class => "btn btn-primary btn-block btn-lg"
+        .text-center
+          = render "users/shared/links"

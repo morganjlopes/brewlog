@@ -15,9 +15,14 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  padding: 4px;
+  background-color: rgb(224, 67, 67);
+  display: block;
+  color: white;
+  border-radius: 3px;
+  .error {
+    margin: 10px;
+  }
 }
 
 #error_explanation {

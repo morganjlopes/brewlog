@@ -8,5 +8,8 @@
           .form-inputs
             = f.input :email, :input_html => { :class => "form-control floatlabel" }, required: true, :label => false, autofocus: true, :placeholder => "Email"
           .form-actions
-            = f.button :submit, "Reset Password via Email", :class => "btn btn-primary"
-        = render "users/shared/links"
+            .row
+              .col-sm-8.col-sm-offset-2
+                = f.button :submit, "Send Reset Info", :class => "btn btn-primary btn-block btn-lg"
+          .text-center
+            = render "users/shared/links"

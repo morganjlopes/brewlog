@@ -4,6 +4,13 @@
       = render "breweries/vcard"
     .col-md-9
       = render "breweries/subnavigation"
-      %h1 Editing brewery
 
-      = render 'form'
+      .row
+        .col-sm-6.col-sm-offset-3
+          .form-mini-wrapper
+            %h1 Edit Brewery
+
+            %p.lead.small
+              Batches are organized within breweries to keep things straight. Don't worry if you're not an 'official brewery', this is just to keep things organized.
+
+            = render 'form'
