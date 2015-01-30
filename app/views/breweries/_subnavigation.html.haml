@@ -9,3 +9,7 @@
     = link_to brewery_batches_path(@brewery) do
       .fa.fa-book
       Batches
+  %li{:role => "presentation", :class => ("active" if @tab_title == "brewery_members")}
+    = link_to brewery_members_path(@brewery) do
+      .fa.fa-users
+      Members

@@ -1719,7 +1719,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
+  color: #555555;
   background-color: #fff;
 }
 
@@ -1735,12 +1735,12 @@ textarea {
 
 /* line 48, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_scaffolding.scss */
 a {
-  color: #337ab7;
+  color: #b99d61;
   text-decoration: none;
 }
 /* line 52, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
-  color: #23527c;
+  color: #8e753f;
   text-decoration: underline;
 }
 /* line 58, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_scaffolding.scss */
@@ -1999,12 +1999,12 @@ mark,
 
 /* line 5, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_text-emphasis.scss */
 .text-primary {
-  color: #337ab7;
+  color: #b99d61;
 }
 
 /* line 8, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_text-emphasis.scss */
 a.text-primary:hover {
-  color: #286090;
+  color: #a08447;
 }
 
 /* line 5, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_text-emphasis.scss */
@@ -2054,12 +2054,12 @@ a.text-danger:hover {
 
 /* line 5, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_background-variant.scss */
 .bg-primary {
-  background-color: #337ab7;
+  background-color: #b99d61;
 }
 
 /* line 8, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_background-variant.scss */
 a.bg-primary:hover {
-  background-color: #286090;
+  background-color: #a08447;
 }
 
 /* line 5, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_background-variant.scss */
@@ -4264,7 +4264,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
+  color: #959595;
 }
 
 @media (min-width: 768px) {
@@ -4461,14 +4461,14 @@ select[multiple].input-lg,
 /* line 63, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_buttons.scss */
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #b99d61;
+  border-color: #b1924f;
 }
 /* line 11, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #a08447;
+  border-color: #876f3c;
 }
 /* line 21, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
 .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
@@ -4476,12 +4476,12 @@ select[multiple].input-lg,
 }
 /* line 29, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #b99d61;
+  border-color: #b1924f;
 }
 /* line 40, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
 .btn-primary .badge {
-  color: #337ab7;
+  color: #b99d61;
   background-color: #fff;
 }
 
@@ -4595,7 +4595,7 @@ select[multiple].input-lg,
 
 /* line 88, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_buttons.scss */
 .btn-link {
-  color: #337ab7;
+  color: #b99d61;
   font-weight: normal;
   border-radius: 0;
 }
@@ -4611,7 +4611,7 @@ select[multiple].input-lg,
 }
 /* line 107, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_buttons.scss */
 .btn-link:hover, .btn-link:focus {
-  color: #23527c;
+  color: #8e753f;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4789,7 +4789,7 @@ tbody.collapse.in {
   color: #fff;
   text-decoration: none;
   outline: 0;
-  background-color: #337ab7;
+  background-color: #b99d61;
 }
 
 /* line 102, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_dropdowns.scss */
@@ -5307,7 +5307,7 @@ tbody.collapse.in {
 /* line 46, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_navs.scss */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #337ab7;
+  border-color: #b99d61;
 }
 /* line 59, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_navs.scss */
 .nav .nav-divider {
@@ -5365,7 +5365,7 @@ tbody.collapse.in {
 /* line 131, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_navs.scss */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #b99d61;
 }
 
 /* line 144, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_navs.scss */
@@ -6140,7 +6140,7 @@ tbody.collapse.in {
   padding: 6px 12px;
   line-height: 1.42857;
   text-decoration: none;
-  color: #337ab7;
+  color: #b99d61;
   background-color: #fff;
   border: 1px solid #ddd;
   margin-left: -1px;
@@ -6162,7 +6162,7 @@ tbody.collapse.in {
 .pagination > li > a:hover, .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  color: #23527c;
+  color: #8e753f;
   background-color: #eeeeee;
   border-color: #ddd;
 }
@@ -6173,8 +6173,8 @@ tbody.collapse.in {
 .pagination > .active > span:focus {
   z-index: 2;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #b99d61;
+  border-color: #b99d61;
   cursor: default;
 }
 /* line 63, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_pagination.scss */
@@ -6324,11 +6324,11 @@ a.label:hover, a.label:focus {
 
 /* line 48, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_labels.scss */
 .label-primary {
-  background-color: #337ab7;
+  background-color: #b99d61;
 }
 /* line 7, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_labels.scss */
 .label-primary[href]:hover, .label-primary[href]:focus {
-  background-color: #286090;
+  background-color: #a08447;
 }
 
 /* line 52, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_labels.scss */
@@ -6398,7 +6398,7 @@ a.label:hover, a.label:focus {
 }
 /* line 40, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_badges.scss */
 .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-  color: #337ab7;
+  color: #b99d61;
   background-color: #fff;
 }
 /* line 46, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_badges.scss */
@@ -6493,14 +6493,14 @@ a.badge:hover, a.badge:focus {
 /* line 27, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_thumbnails.scss */
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  color: #555555;
 }
 
 /* line 34, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_thumbnails.scss */
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #337ab7;
+  border-color: #b99d61;
 }
 
 /* line 9, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_alerts.scss */
@@ -6639,7 +6639,7 @@ a.thumbnail.active {
   line-height: 20px;
   color: #fff;
   text-align: center;
-  background-color: #337ab7;
+  background-color: #b99d61;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
@@ -6836,8 +6836,8 @@ a.list-group-item:hover, a.list-group-item:focus {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 2;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #b99d61;
+  border-color: #b99d61;
 }
 /* line 90, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_list-group.scss */
 .list-group-item.active .list-group-item-heading,
@@ -6851,7 +6851,7 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 /* line 95, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_list-group.scss */
 .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
-  color: #c7ddef;
+  color: #f8f5ee;
 }
 
 /* line 4, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_list-group.scss */
@@ -7284,26 +7284,26 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 
 /* line 251, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_panels.scss */
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #b99d61;
 }
 /* line 6, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #b99d61;
+  border-color: #b99d61;
 }
 /* line 11, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #337ab7;
+  border-top-color: #b99d61;
 }
 /* line 14, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading .badge {
-  color: #337ab7;
+  color: #b99d61;
   background-color: #fff;
 }
 /* line 20, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #337ab7;
+  border-bottom-color: #b99d61;
 }
 
 /* line 254, /Users/morganjlopes/code/brew-log/vendor/assets/stylesheets/bootstrap/_panels.scss */
@@ -8555,58 +8555,75 @@ button.close {
     display: none !important;
   }
 }
+/* line 5, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/activities.scss */
+.activity {
+  padding: 20px 0px;
+}
 /* line 5, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/batches.scss */
 #batch_action_wrapper {
   margin: 10px auto;
 }
 
-/* line 10, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/batches.scss */
+/* line 9, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/batches.scss */
+#batch_header_wrapper {
+  margin: 30px;
+}
+/* line 11, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/batches.scss */
 #batch_header_wrapper h1 {
   font-size: 24px;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+/* line 17, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/batches.scss */
+#batch_header_wrapper ul, #batch_header_wrapper ol {
+  margin-bottom: 0px;
+}
+/* line 5, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/breweries.scss */
+#brewery_data_overview {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+/* line 9, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/breweries.scss */
+#brewery_data_overview h3 {
+  margin: 0px 0px 0px 0px;
+}
+/* line 12, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/breweries.scss */
+#brewery_data_overview p {
+  margin: 0px;
 }
 /* line 1, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-/* line 9, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-/* line 15, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-/* line 22, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+/* line 8, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 div.field, div.actions {
   margin-bottom: 10px;
 }
 
-/* line 27, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+/* line 13, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 #notice {
   color: green;
 }
 
-/* line 31, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+/* line 17, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  padding: 4px;
+  background-color: #e04343;
+  display: block;
+  color: white;
+  border-radius: 3px;
+}
+/* line 23, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors .error {
+  margin: 10px;
 }
 
-/* line 37, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+/* line 28, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -8615,7 +8632,7 @@ div.field, div.actions {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 44, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+/* line 35, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -8626,15 +8643,15 @@ div.field, div.actions {
   background-color: #c00;
   color: #fff;
 }
-/* line 54, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
+/* line 45, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/scaffolds.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 /* line 1, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
 .form-mini-wrapper {
-  border: 2px solid #666;
-  padding: 30px;
+  border: none;
+  padding: 0px;
 }
 
 /* line 6, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
@@ -8662,4 +8679,94 @@ div.field, div.actions {
 /* line 25, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
 .input-group .form-control {
   height: 33px;
+}
+
+/* line 29, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+h1, .h1, h2, .h2, h3, .h3 {
+  text-transform: uppercase;
+}
+
+/* line 33, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  color: #767676;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* line 42, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.form-control,
+.input-group .form-control {
+  display: block;
+  width: 100%;
+  height: 42px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555;
+  background-color: #FFF;
+  background-image: none;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+/* line 61, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.form-control.active-floatlabel {
+  height: 50px;
+}
+
+/* line 65, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.input-group-btn > .btn {
+  position: relative;
+  height: 42px;
+}
+
+/* line 71, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.search_wrapper .form-control,
+.search_wrapper .input-group .form-control {
+  height: 33px;
+}
+/* line 75, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.search_wrapper .input-group-btn > .btn {
+  position: relative;
+  height: 33px;
+}
+
+/* line 81, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+label {
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #959595;
+  text-transform: uppercase;
+}
+
+/* line 90, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.label-floatlabel {
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+/* line 95, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.hidden-toggle {
+  display: none;
+}
+
+/* line 99, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: -14px;
+  margin-top: 2px;
+}
+
+/* line 105, /Users/morganjlopes/code/brew-log/app/assets/stylesheets/styles.scss */
+.users_shared_links_wrapper {
+  margin-top: 10px;
 }

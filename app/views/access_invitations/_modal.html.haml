@@ -1,0 +1,22 @@
+/ Modal
+#InvitationModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "InvitationModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      = simple_form_for([@accessable, @access_invitation]) do |f|
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+          %h4#InvitationModalLabel.modal-title
+            Invite
+        .modal-body
+          = f.error_notification
+          .form-inputs
+            .form-group
+              = f.input :comma_seperated_emails, :input_html => { :class => "form-control floatlabel"}, :placeholder => "Recipient Emails", :label => false
+              %span.hint seperate with commas to multiple invitations
+            .form-group
+              %p.mock-input-box
+                = @access_invitation.default_body_copy.gsub(/\n/, '<br/>').html_safe
+
+        .modal-footer
+          = f.submit "Send Invites", :class => "btn btn-primary btn-lg"

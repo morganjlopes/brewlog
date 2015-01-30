@@ -1,0 +1,47 @@
+.container
+  .row
+    .col-md-3
+      = render "breweries/vcard"
+    .col-md-9
+      = render "breweries/subnavigation"
+
+      #batch_action_wrapper
+        .row
+          .col-sm-6
+            .input-group.search_wrapper
+              %input.form-control{:placeholder => "Find a Batch...", :type => "text"}/
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "button"} Search
+
+          .col-sm-6
+            %a{:class => "btn btn-primary pull-right", :href => "", "data-target" => "#InvitationModal", "data-toggle" => "modal", :type => "button"}
+              + Invite
+
+      %table.table
+        %tbody
+          - @brewery.users.each do |user|
+            %tr
+              %td.text-success
+                Member
+              %td
+                = user.name
+                %br
+                %small  #{user.email} #{"(You)" if user == current_user}
+              %td.text-right
+                - if user != current_user
+                  =link_to "", :class => "btn bnt-link btn-sm text-danger" do
+                    .fa.fa-remove
+                    Remove
+
+          - @access_invitations.where.not(:receiver_id => nil).each do |access_invitation|
+            %tr
+              %td.text-warning
+                Invited
+              %td
+                = access_invitation.invitation_email
+              %td.text-right
+                = link_to brewery_access_invitation_path(@brewery, access_invitation), :method => :delete, :class => "btn bnt-link btn-sm text-danger" do
+                  .fa.fa-trash
+                    Uninvite
+
+= render "access_invitations/modal"

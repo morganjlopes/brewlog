@@ -5,6 +5,8 @@ class Brewery < ActiveRecord::Base
   has_many :brewery_users
   has_many :users, through: :brewery_users
 
+  has_many :access_invitations, as: :accessable
+
   has_many :batches
   has_many :activities, as: :trackable
 

@@ -11,6 +11,18 @@ class BreweriesController < ApplicationController
     @breweries = current_user.breweries.all
   end
 
+  def members
+    @tab_title                          = "brewery_members"
+    @brewery                            = current_user.breweries.find(params[:brewery_id])
+    @accessable                         = @brewery
+    @access_invitation                  = @brewery.access_invitations.new
+    @access_invitations                 = @brewery.access_invitations.all
+  end
+
+  def remove_member
+    
+  end
+
   # GET /breweries/1
   # GET /breweries/1.json
   def show

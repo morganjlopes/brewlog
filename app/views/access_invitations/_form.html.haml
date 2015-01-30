@@ -1,0 +1,9 @@
+= simple_form_for([@accessable, @access_invitation]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :comma_seperated_emails, :input_html => { :class => "form-control"}, :label => "Recipient Emails"
+    = f.input :invitation_body, :input_html => { :class => "form-control"}, :label => "Invitation Content"
+
+  .form-actions
+    = f.submit "Send Invite", :class => "btn btn-primary"

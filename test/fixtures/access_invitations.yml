@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  owner_type: MyString
+  sender_id: 1
+  receiver_id: 1
+  invitation_email: MyString
+  invitation_body: MyText
+  token: MyString
+  expiration_dts: 2015-01-29 06:20:23
+  accepted_on_dts: 2015-01-29 06:20:23
+  slug: MyString
+
+two:
+  owner_id: 1
+  owner_type: MyString
+  sender_id: 1
+  receiver_id: 1
+  invitation_email: MyString
+  invitation_body: MyText
+  token: MyString
+  expiration_dts: 2015-01-29 06:20:23
+  accepted_on_dts: 2015-01-29 06:20:23
+  slug: MyString

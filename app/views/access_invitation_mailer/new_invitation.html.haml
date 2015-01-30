@@ -1,0 +1,4 @@
+= @body.gsub(/\n/, '<br/>').html_safe
+
+- if @invite.accessable_type == "Brewery"
+  = link_to "Accept Invitation", authorize_brewery_access_invitation_url(@invite.accessable, @invite, :t => @invite.token)

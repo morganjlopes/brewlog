@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :activities
   has_many :brewery_users
   has_many :breweries, through: :brewery_users
+  has_many :access_invitations, as: :sender
+  has_many :access_invitations, as: :receiver
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

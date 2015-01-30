@@ -1,12 +1,29 @@
 Rails.application.routes.draw do
-  resources :activities
 
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   
   resources :breweries do
 
-    resources :batches
+    resources :batches do
+      resources :access_invitations,
+                :path => "invites",
+                :only => [:create, :destroy]
+    end
 
+    resources :access_invitations,
+              :path => "invites",
+              :only => [:create, :destroy] do
+
+      member do
+        get :authorize
+      end
+    end
+
+    member do
+      get :remove_member
+    end
+
+    get '/members', to: 'breweries#members', as: 'members'
   end
 
   root to: "breweries#index"

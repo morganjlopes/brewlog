@@ -1,4 +1,5 @@
 class BatchesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_brewery_from_url
   before_action :set_batch, only: [:show, :edit, :update]
 
@@ -61,6 +62,7 @@ class BatchesController < ApplicationController
     def set_brewery_from_url
       @brewery = current_user.breweries.find(params[:brewery_id])
     end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
       @batch = @brewery.batches.find(params[:id])

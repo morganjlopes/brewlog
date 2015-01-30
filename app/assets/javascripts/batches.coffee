@@ -4,6 +4,9 @@
 
 jQuery ->
   $(".dropdown-toggle").dropdown()
+  
+  $('textarea.autosize').autosize();
+
   $('input.floatlabel').floatlabel();
   $(".toggleable").click ->
     item = $(this).data("toggle-wrapper")

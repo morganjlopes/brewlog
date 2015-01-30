@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127150159) do
+ActiveRecord::Schema.define(version: 20150129112023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_invitations", force: :cascade do |t|
+    t.integer  "accessable_id"
+    t.string   "accessable_type"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "invitation_email"
+    t.text     "invitation_body"
+    t.string   "token"
+    t.datetime "expiration_dts"
+    t.datetime "accepted_on_dts"
+    t.string   "slug"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
