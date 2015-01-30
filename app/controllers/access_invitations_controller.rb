@@ -25,7 +25,7 @@ class AccessInvitationsController < ApplicationController
 
 
     if @access_invitation.accepted_on_dts.present? # Make sure invitation isn't already accepted
-      redirect_to brewery_path(@access_invitation.accessable), notice: "This Invitation has already been accepted."
+      redirect_to root_path, notice: "This Invitation has already been accepted."
     elsif @access_invitation.expiration_dts > Time.now # Make sure invitation isn't expired
       redirect_to brewery_path(@access_invitation.accessable), notice: "This Invitation has expired."
     else
@@ -37,6 +37,9 @@ class AccessInvitationsController < ApplicationController
         redirect_to brewery_path(@access_invitation.accessable), notice: "Welcome to #{@access_invitation.accessable.name}!"
       end
     end
+
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, notice: "Sorry, it appears your invitation has been revoked."
   end
 
   private
