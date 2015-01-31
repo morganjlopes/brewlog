@@ -60,7 +60,7 @@ class BatchesController < ApplicationController
   private
 
     def set_brewery_from_url
-      @brewery = current_user.breweries.find(params[:brewery_id])
+      @brewery = Brewery.find(params[:brewery_id])
     end
     
     # Use callbacks to share common setup or constraints between actions.
