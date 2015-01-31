@@ -1,0 +1,15 @@
+#main.container
+  %h1
+    = @beer_style.name
+  %p
+    = @beer_style.description
+  
+  - if @beer_style.alternative_names.present?
+    %p
+      Also know as,
+      = @beer_style.alternative_names
+
+  - if @beer_style.examples.present?
+    %p
+      %b Examples:
+      = @beer_style.examples

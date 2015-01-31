@@ -1,0 +1,7 @@
+#main.container
+  %h1 Beer Styles
+
+  - @beer_styles.each do |beer_style|
+    %h2= beer_style.name
+    %p= beer_style.description
+    %p= link_to "Read more about #{beer_style.name}", beer_style

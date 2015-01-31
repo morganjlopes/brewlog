@@ -1,4 +1,5 @@
-class BreweriesController < ApplicationController
+require 'public_facing/public_facing_controller.rb'
+class PublicFacing::BreweriesController < PublicFacingController
   before_action :authenticate_user!
   before_action :set_brewery, only: [:show, :edit, :update]
 
@@ -27,7 +28,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/1.json
   def show
     @tab_title = "brewery_home"
-    @activities = @brewery.collective_activity_log.sort_by{|e| e[:created_at]}.reverse
+    @activities = @brewery.collective_activity_log.sort_by{|e| e[:created_at]}.reverse.last(10)
   end
 
   # GET /breweries/new

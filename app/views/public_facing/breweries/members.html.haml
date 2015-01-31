@@ -1,9 +1,9 @@
 #main.container
   .row
     .col-md-3
-      = render "breweries/vcard"
+      = render "public_facing/breweries/vcard"
     .col-md-9
-      = render "breweries/subnavigation"
+      = render "public_facing/breweries/subnavigation"
 
       #batch_action_wrapper
         .row
@@ -44,4 +44,4 @@
                   .fa.fa-trash
                     Uninvite
 
-= render "access_invitations/modal"
+= render "public_facing/access_invitations/modal"

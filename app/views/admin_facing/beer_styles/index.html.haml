@@ -1,0 +1,22 @@
+#main.container
+  %h1 Beer Styles
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Alternative names
+        %th
+        
+    %tbody
+      - @beer_styles.each do |beer_style|
+        %tr
+          %td= beer_style.name
+          %td= beer_style.alternative_names
+          %td.text-right
+            = link_to 'Show', beer_style, :class => "btn btn-default btn-sm", :target => "_blank"
+            = link_to 'Edit', edit_admin_beer_style_path(beer_style), :class => "btn btn-default btn-sm"
+
+  %br
+
+  = link_to 'New Beer style', new_admin_beer_style_path, :class => "btn btn-primary"

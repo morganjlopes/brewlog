@@ -1,4 +1,5 @@
-class AccessInvitationsController < ApplicationController
+require 'public_facing/public_facing_controller.rb'
+class PublicFacing::AccessInvitationsController < PublicFacingController
   before_action :authenticate_user!
   before_action :set_brewery_from_url
   before_action :load_accessable

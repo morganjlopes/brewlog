@@ -22,11 +22,8 @@
     = yield
 
     - if @brewery.present? and @brewery.id
-      =render "batches/new_modal"
+      =render "public_facing/batches/new_modal"
 
-    %footer.footer
-      %ul.list-inline
-        %li
-          Brew Something Great!
+    =render "layouts/footer"
 
     %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/

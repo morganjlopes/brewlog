@@ -15,6 +15,7 @@ jQuery ->
   $('body').scrollspy({ target: '.spy-nav' })
 
   $('input.floatlabel').floatlabel();
+
   $(".toggleable").click ->
     item = $(this).data("toggle-wrapper")
     $(item).slideToggle()
