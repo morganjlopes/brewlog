@@ -1,0 +1,11 @@
+%section#conditioning
+  .section_header_wrapper
+    %h3
+      Condition Day
+  .section_body_wrapper
+    .form-group
+      = f.label :actual_condition_date, "Condition Date"
+      .input-group
+        .input-group-addon
+          .fa.fa-calendar
+        = f.date_field :actual_condition_date, :class => "form-control", :label => false

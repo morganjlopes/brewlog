@@ -1,0 +1,70 @@
+%section#bottling
+  .section_header_wrapper
+    %h3
+      Bottle Day
+  .section_body_wrapper
+
+    %p#calculated_bottle_count_wrapper.text-muted
+      The following calculations are determined using your Projected Volume from the
+      %a{ :href => "#brewing"}
+        Brew Day Section.
+    %table#glassware_calculation_table.table
+      %tr
+        %th
+        %th.text-center
+          12oz
+        %th.text-center
+          22oz
+        %th.text-center
+          32oz Growler
+        %th.text-center
+          64oz Growler
+      %tr
+        %td
+          Count
+        %td.text-center
+          %span#calculated_bottle_12_oz_count
+          %br
+          %small.text-muted
+            %span#calculated_bottle_12_oz_extra_in_oz
+            oz left over
+        %td.text-center
+          %span#calculated_bottle_22_oz_count
+          %br
+          %small.text-muted
+            %span#calculated_bottle_22_oz_extra_in_oz
+            oz left over
+        %td.text-center
+          %span#calculated_half_growler_count
+          %br
+          %small.text-muted
+            %span#calculated_half_growler_extra_in_oz
+            oz left over
+        %td.text-center
+          %span#calculated_full_growler_count
+          %br
+          %small.text-muted
+            %span#calculated_full_growler_extra_in_oz
+            oz left over
+
+    .form-group
+      = f.label :actual_bottle_date, "Bottle Date"
+      .input-group
+        .input-group-addon
+          .fa.fa-calendar
+        = f.date_field :actual_bottle_date, :class => "form-control", :label => false
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :actual_volume_in_gallons, "Actual Volume"
+          .input-group
+            = f.input :actual_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
+            .input-group-addon
+              gal
+          %span.hint
+            How many gallons did your batch yield?
+      .col-sm-6
+        .form-group
+          = f.input :actual_final_gravity, :input_html => { :class => "form-control" }, :label => "Final Gravity (FG)"
+          %span.hint
+            What was the hydrometer reading after fermentation?

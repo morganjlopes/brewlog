@@ -1,5 +1,19 @@
 = render "batches/header"
 
 .container
-  = render 'form'
 
+  .row
+    .col-sm-8
+      = render 'form'
+    .col-sm-4
+      .affixable_wrapper
+        #spy-nav{"data-offset-top" => "125", "data-offset-bottom" => "100", "data-spy" => "affix"}
+          %ul.nav.nav-pills.nav-stacked
+            %li= link_to "Projections", "#projections"
+            %li= link_to "Brewing", "#brewing"
+            %li= link_to "Bottling", "#bottling"
+            %li= link_to "Conditioning", "#conditioning"
+
+          .back_to_top
+            = link_to "#top" do
+              Back to top

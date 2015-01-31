@@ -1,0 +1,26 @@
+%section#brewing
+  .section_header_wrapper
+    %h3
+      Brew Day
+  .section_body_wrapper
+    .form-group
+      = f.label :actual_brew_date, :label => "Brew Date", :input_html => { :class => ""}
+      .input-group
+        .input-group-addon
+          .fa.fa-calendar
+        = f.date_field :actual_brew_date, :class => "form-control", :label => false
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :projected_volume_in_gallons, "Projected Volume"
+          .input-group
+            = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
+            .input-group-addon
+              gal
+          %span.hint
+            How many gallons are you expecting?
+      .col-sm-6
+        .form-group
+          = f.input :actual_original_gravity, :input_html => { :class => "form-control" }, :label => "Original Gravity (OG)"
+          %span.hint
+            What was the hydrometer reading after brewing?

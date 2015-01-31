@@ -118,3 +118,24 @@ label {
   padding: 20px;
   background-color: #f5f5f5;
 }
+
+section {
+  .section_body_wrapper {
+    padding: 10px 20px 20px 20px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+#spy-nav.affix{
+  top: 38px; /* Set the top position of pinned element */
+}
+
+.back_to_top {
+  margin-left: 15px;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 20px 0px;
+  a {
+    color: #999;
+  }
+}

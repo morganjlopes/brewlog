@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129112023) do
+ActiveRecord::Schema.define(version: 20150130105856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20150129112023) do
     t.date     "projected_bottle_date"
     t.date     "projected_condition_date"
     t.string   "slug"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.decimal  "actual_original_gravity"
     t.decimal  "actual_final_gravity"
     t.decimal  "actual_alcohol_by_volume"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20150129112023) do
     t.date     "actual_bottle_date"
     t.date     "actual_condition_date"
     t.integer  "brewery_id"
+    t.integer  "actual_international_bittering_units"
+    t.integer  "projected_international_bittering_units"
   end
 
   create_table "breweries", force: :cascade do |t|
