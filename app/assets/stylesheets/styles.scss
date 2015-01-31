@@ -11,6 +11,7 @@
   background-color: #f8f8f8;
   border-color: #e7e7e7;
   border-radius: 0px;
+  margin-bottom: 0px;
 }
 
 .table > thead > tr > th,
@@ -138,4 +139,8 @@ section {
   a {
     color: #999;
   }
+}
+
+.alert {
+  margin-bottom: 0px;
 }

@@ -3,6 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  
+  $(".alert").hide()
+  $(".alert").slideDown()
+  $(".alert-success").delay(3000).slideUp()
+
   $(".dropdown-toggle").dropdown()
   
   $('textarea.autosize').autosize();

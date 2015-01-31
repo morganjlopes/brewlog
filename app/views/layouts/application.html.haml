@@ -11,9 +11,13 @@
     = render "layouts/navigation"
 
     -if notice
-      #notice.alert.alert-success= notice
+      #notice.alert.alert-success
+        .container
+          = notice
     -if alert
-      #alert.alert.alert-danger= alert
+      #alert.alert.alert-danger
+        .container
+          = alert
 
     = yield
 
