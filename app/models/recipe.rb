@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history, :finders]
 
   belongs_to :author, :class_name => "User"
   belongs_to :beer_style
