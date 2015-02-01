@@ -4,7 +4,10 @@ class Recipe < ActiveRecord::Base
   belongs_to :beer_style
 
   has_many :recipe_ingredients
+  has_many :recipe_events
+  
   accepts_nested_attributes_for :recipe_ingredients
+  accepts_nested_attributes_for :recipe_events
   
   DIFFICULTY_EASY       = 1
   DIFFICULTY_MEDIUM     = 2

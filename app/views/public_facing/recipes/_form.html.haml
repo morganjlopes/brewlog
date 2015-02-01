@@ -1,37 +1,17 @@
 = simple_form_for(@recipe) do |f|
   = f.error_notification
 
-  .form-inputs
-    .form-group
-      = f.input :name, :input_html => { :class => "form-control" }, :label => "Recipe Name"
+  = render "public_facing/recipes/form_section/details", :f => f
 
-    .form-group
-      = f.input :description, :input_html => { :class => "form-control autosize" }, :label => "Recipe Description"
+  = render "public_facing/recipes/form_section/profile", :f => f
 
-    .row
-      .col-sm-4
-        .form-group
-          = f.label :projected_volume_in_gallons, "Volume"
-          .input-group
-            = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
-            .input-group-addon gal
-      .col-sm-4
-        .form-group
-          = f.input :recipe_type, collection: Recipe.recipe_types, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control" }
-      .col-sm-4
-        .form-group
-          = f.input :difficulty, collection: Recipe.difficulty_options, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control"}, :label => "Recipe Difficulty"
+  = render "public_facing/recipes/form_section/ingredients", :f => f
 
-    = render "public_facing/recipes/form_section/profile", :f => f
+  = render "public_facing/recipes/form_section/schedule", :f => f
 
-    = render "public_facing/recipes/form_section/ingredients", :f => f
+  = render "public_facing/recipes/form_section/fermenting", :f => f
 
-    = render "public_facing/recipes/form_section/schedule", :f => f
-
-    = render "public_facing/recipes/form_section/fermenting", :f => f
-    
-    .form-group
-      = f.input :additional_notes, :input_html => { :class => "form-control autosize" }
+  = render "public_facing/recipes/form_section/additional", :f => f
 
   .form-actions
     = f.submit "Submit", :class => "btn btn-primary"

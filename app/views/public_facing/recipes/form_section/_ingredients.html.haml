@@ -1,31 +1,32 @@
 %section#recipe_ingredients_wrapper
   %h4 Ingredients
-  %table#recipe_ingredients_table.table
-    %tr
-      %th.ingredient_quantity_column
-        Quantity
-      %th
-        Units
-      %th
-        Ingredient
-      %th
-        Type
-      %th
-    = f.association :recipe_ingredients do |i|
+  .form-inputs
+    %table#recipe_ingredients_table.table
       %tr
-        %td
-          = i.input :quantity, :input_html => { :class => "form-control" }, :label => false
-        %td
-          = i.input :standard_unit, collection: RecipeIngredient.standard_unit_options, :label_method => :last, :value_method => :first, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
-        %td
-          = i.input :item, :input_html => { :class => "form-control" }, :label => false
-        %td
-          = i.input :ingredient_type, collection: RecipeIngredient.ingredient_types, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control" }, :label => false
-        %td
+        %th.ingredient_quantity_column
+          Quantity
+        %th
+          Units
+        %th
+          Ingredient
+        %th
+          Type
+        %th
+      = f.association :recipe_ingredients do |i|
+        %tr
+          %td
+            = i.input :quantity, :input_html => { :class => "form-control" }, :label => false
+          %td
+            = i.input :standard_unit, collection: RecipeIngredient.standard_unit_options, :label_method => :last, :value_method => :first, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
+          %td
+            = i.input :item, :input_html => { :class => "form-control" }, :label => false
+          %td
+            = i.input :ingredient_type, collection: RecipeIngredient.ingredient_types, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control" }, :label => false
+          %td.remove_row_trigger_column
 
-  .text-center
-    #add_ingredient_btn.btn.btn-default.btn-sm
-      Add Ingredient
+    .text-center
+      #add_ingredient_btn.btn.btn-default.btn-sm
+        Add Ingredient
 
 = content_for :page_script do
   :javascript

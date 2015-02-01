@@ -1,7 +1,44 @@
 %section#recipe_schedule_wrapper
   %h4 Brewing Schedule
-  .form-group
-    = f.label :total_boil_duration_in_minutes, "Boil Duration"
-    .input-group
-      = f.input :total_boil_duration_in_minutes, :input_html => { :class => "form-control" }, :label => false
-      .input-group-addon minutes
+  .form-inputs
+    %table#recipe_events_table.table
+      = f.association :recipe_events do |a|
+        %tr
+          %td.recipe_event_action_column
+            = a.input :action, collection: RecipeEvent.event_options, :label_method => :last, :value_method => :last, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
+          %td.recipe_event_subject_column
+            = a.input :subject, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
+          %td.remove_row_trigger_column
+            .fa.fa-close.remove_row_trigger
+
+    .text-center
+      #add_event_btn.btn.btn-default.btn-sm
+        Add Event
+
+    .form-group
+      = f.label :total_boil_duration_in_minutes, "Boil Duration"
+      .input-group
+        = f.input :total_boil_duration_in_minutes, :input_html => { :class => "form-control" }, :label => false
+        .input-group-addon minutes
+
+= content_for :page_script do
+  :javascript
+    // Add Digital Address Script
+    var i = #{@recipe.recipe_ingredients.count};
+    var action_options = '#{raw options_from_collection_for_select(RecipeEvent.event_options, :last, :last).squish.gsub('> <', '><')}';
+
+    $("#add_event_btn").click(function(){
+      i ++;
+      $("#recipe_events_table").append('<tr><td class="recipe_event_action_column"><div class="input select optional recipe_recipe_events_action"><select class="select optional form-control" name="recipe[recipe_events_attributes]['+i+'][action]" id="recipe_recipe_events_attributes_'+i+'_action">' + action_options + '</select></div></td><td><div class="input string optional recipe_recipe_events_subject"><input class="string optional form-control" type="text" name="recipe[recipe_events_attributes]['+i+'][subject]" id="recipe_recipe_events_attributes_'+i+'_subject"></div></td><td><i class="fa fa-close remove_row_trigger"></i></td></tr>');
+    });
+
+    // Remove Row Script
+    $("#recipe_events_table").on("click", ".remove_row_trigger", function() {
+      var tr = $(this).closest('tr');
+      tr.css("background-color","#CD0000");
+
+      tr.fadeOut(400, function(){
+        tr.remove();
+      });
+      return false;
+    });

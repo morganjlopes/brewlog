@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#recipe_ingredients_table {
+#recipe_ingredients_table,
+#recipe_events_table {
   margin-bottom: 0px;
 }
 
 .ingredient_quantity_column {
   width: 80px;
+}
+
+.recipe_event_action_column {
+  width: 150px;
 }

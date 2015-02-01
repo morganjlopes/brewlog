@@ -10,6 +10,7 @@
         %li= pluralize(@recipe.projected_volume_in_gallons, "gallon")
       %p
         = @recipe.description
+
       %table.table
         %tr
           %td
@@ -37,13 +38,17 @@
             %strong
               Color:
               = @recipe.color
+
     .col-sm-6
       %h2 Ingredients
-      - @recipe.recipe_ingredients.order("ingredient_type desc").each do |ingredient|
-        = pluralize(ingredient.quantity, ingredient.standard_unit_as_string)
-        = ingredient.item
-        %strong.small.text-uppercase
-          #{ingredient.ingredient_type_as_string}
+
+      %ul.list-unstyled
+        - @recipe.recipe_ingredients.order("ingredient_type desc").each do |ingredient|
+          %li
+            = pluralize(ingredient.quantity, ingredient.standard_unit_as_string)
+            = ingredient.item
+            %strong.small.text-uppercase
+              #{ingredient.ingredient_type_as_string}
 
   %hr
 
@@ -58,25 +63,27 @@
         %p
           %b Secondary Fermenting Duration:
           = @recipe.secondary_fermenting_duration_in_days
+
+      %p
+        %b Fermenting Temperature:
+        #{@recipe.recommended_fermenting_temperature_in_fahrenheit}˚ F
+      %p
+        %b Author:
+        = @recipe.author_id
+      %p
+        %b Additional notes:
+        = @recipe.additional_notes
       
     .col-sm-6
       %h3 Brewing Schedule
+
+      %ol
+        - @recipe.recipe_events.each do |event|
+          %li
+            = event.action
+            = event.subject
 
       %p.text-center
         %strong
           Total Boil Time:
           = pluralize(@recipe.total_boil_duration_in_minutes, "minute")
-
-  %p
-    %b Fermenting Temperature:
-    #{@recipe.recommended_fermenting_temperature_in_fahrenheit}˚ F
-  %p
-    %b Author:
-    = @recipe.author_id
-  %p
-    %b Additional notes:
-    = @recipe.additional_notes
-
-  = link_to 'Edit', edit_recipe_path(@recipe)
-  \|
-  = link_to 'Back', recipes_path

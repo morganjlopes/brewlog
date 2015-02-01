@@ -17,6 +17,7 @@ class PublicFacing::RecipesController < PublicFacingController
   def new
     @recipe = Recipe.new
     @recipe.recipe_ingredients.build
+    @recipe.recipe_events.build
   end
 
   # GET /recipes/1/edit
@@ -26,7 +27,8 @@ class PublicFacing::RecipesController < PublicFacingController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = current_user.recipes.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    @recipe.author = current_user
 
     respond_to do |format|
       if @recipe.save
@@ -88,6 +90,7 @@ class PublicFacing::RecipesController < PublicFacingController
                                      :recommended_fermenting_temperature_in_fahrenheit,
                                      :author_id,
                                      :additional_notes,
-                                     recipe_ingredients_attributes: [:quantity, :standard_unit, :item, :ingredient_type])
+                                     recipe_ingredients_attributes: [:id, :quantity, :standard_unit, :item, :ingredient_type],
+                                     recipe_events_attributes: [:id, :action, :subject])
     end
 end

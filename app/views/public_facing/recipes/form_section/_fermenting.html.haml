@@ -1,21 +1,22 @@
 %section#recipe_fermenting_wrapper
   %h4 Fermenting
-  .row
-    .col-sm-4
-      .form-group
-        = f.label :recommended_fermenting_temperature_in_fahrenheit, "Fermenting Temperature"
-        .input-group
-          = f.input :recommended_fermenting_temperature_in_fahrenheit, :input_html => { :class => "form-control" }, :label => false
-          .input-group-addon ˚ F
-    .col-sm-4
-      .form-group
-        = f.label :primary_fermenting_duration_in_days, "Primary Fermenting Duration"
-        .input-group
-          = f.input :primary_fermenting_duration_in_days, :input_html => { :class => "form-control" }, :label => false
-          .input-group-addon days
-    .col-sm-4
-      .form-group
-        = f.label :secondary_fermenting_duration_in_days, "Secondary Fermenting Duration"
-        .input-group
-          = f.input :secondary_fermenting_duration_in_days, :input_html => { :class => "form-control" }, :label => false
-          .input-group-addon days
+  .form-inputs
+    .row
+      .col-sm-4
+        .form-group
+          = f.label :recommended_fermenting_temperature_in_fahrenheit, "Fermenting Temperature"
+          .input-group
+            = f.input :recommended_fermenting_temperature_in_fahrenheit, :input_html => { :class => "form-control" }, :label => false
+            .input-group-addon ˚ F
+      .col-sm-4
+        .form-group
+          = f.label :primary_fermenting_duration_in_days, "Primary Fermenting Duration"
+          .input-group
+            = f.input :primary_fermenting_duration_in_days, :input_html => { :class => "form-control" }, :label => false
+            .input-group-addon days
+      .col-sm-4
+        .form-group
+          = f.label :secondary_fermenting_duration_in_days, "Secondary Fermenting Duration"
+          .input-group
+            = f.input :secondary_fermenting_duration_in_days, :input_html => { :class => "form-control" }, :label => false
+            .input-group-addon days

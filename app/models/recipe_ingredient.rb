@@ -13,7 +13,8 @@ class RecipeIngredient < ActiveRecord::Base
   INGREDIENT_TYPE_FERMENTABLE   = 1
   INGREDIENT_TYPE_HOPS          = 2
   INGREDIENT_TYPE_YEAST         = 3
-  INGREDIENT_TYPE_OTHER         = 4
+  INGREDIENT_TYPE_GRAIN         = 4
+  INGREDIENT_TYPE_OTHER         = 5
 
   def self.standard_unit_options
     {
@@ -54,6 +55,7 @@ class RecipeIngredient < ActiveRecord::Base
       INGREDIENT_TYPE_FERMENTABLE   => "Fermentable",
       INGREDIENT_TYPE_HOPS          => "Hops",
       INGREDIENT_TYPE_YEAST         => "Yeast",
+      INGREDIENT_TYPE_GRAIN         => "Grain",
       INGREDIENT_TYPE_OTHER         => "Other"
     }
   end
@@ -66,6 +68,8 @@ class RecipeIngredient < ActiveRecord::Base
         "hops"
       when INGREDIENT_TYPE_YEAST
         "yeast"
+      when INGREDIENT_TYPE_GRAIN
+        "grain"
       when INGREDIENT_TYPE_OTHER
         "other"
     end
