@@ -1,0 +1,7 @@
+%section#recipe_schedule_wrapper
+  %h4 Brewing Schedule
+  .form-group
+    = f.label :total_boil_duration_in_minutes, "Boil Duration"
+    .input-group
+      = f.input :total_boil_duration_in_minutes, :input_html => { :class => "form-control" }, :label => false
+      .input-group-addon minutes

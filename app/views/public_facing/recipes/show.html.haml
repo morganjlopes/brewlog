@@ -1,57 +1,82 @@
-%p#notice= notice
+#main.container
+  .row
+    .col-sm-6
+      %h1= @recipe.name
+      %ul.list-unstyled.list-inline
+        %li= link_to @recipe.beer_style.name, beer_style_path(@recipe.beer_style)
+        %li •
+        %li= @recipe.recipe_type_as_string.titleize
+        %li •
+        %li= pluralize(@recipe.projected_volume_in_gallons, "gallon")
+      %p
+        = @recipe.description
+      %table.table
+        %tr
+          %td
+            %strong
+              OG:
+              = @recipe.projected_original_gravity
+          %td
+            %strong
+              FG:
+              = @recipe.projected_final_gravity
+          %td
+            %strong
+              IBU:
+              = @recipe.projected_international_bittering_units
+        %tr
+          %td
+            %strong
+              ABV:
+              = @recipe.projected_alcohol_by_volume
+          %td
+            %strong
+              Difficulty:
+              = @recipe.difficulty
+          %td
+            %strong
+              Color:
+              = @recipe.color
+    .col-sm-6
+      %h2 Ingredients
+      - @recipe.recipe_ingredients.order("ingredient_type desc").each do |ingredient|
+        = pluralize(ingredient.quantity, ingredient.standard_unit_as_string)
+        = ingredient.item
+        %strong.small.text-uppercase
+          #{ingredient.ingredient_type_as_string}
 
-%p
-  %b Name:
-  = @recipe.name
-%p
-  %b Description:
-  = @recipe.description
-%p
-  %b Color:
-  = @recipe.color
-%p
-  %b Difficulty:
-  = @recipe.difficulty
-%p
-  %b Recipe type:
-  = @recipe.recipe_type
-%p
-  %b Beer style:
-  = @recipe.beer_style_id
-%p
-  %b Projected volume in gallons:
-  = @recipe.projected_volume_in_gallons
-%p
-  %b Projected original gravity:
-  = @recipe.projected_original_gravity
-%p
-  %b Projected final gravity:
-  = @recipe.projected_final_gravity
-%p
-  %b Projected alcohol by volume:
-  = @recipe.projected_alcohol_by_volume
-%p
-  %b Projected international bittering units:
-  = @recipe.projected_international_bittering_units
-%p
-  %b Total boil duration in minutes:
-  = @recipe.total_boil_duration_in_minutes
-%p
-  %b Primary fermenting duration in days:
-  = @recipe.primary_fermenting_duration_in_days
-%p
-  %b Secondary fermenting duration in days:
-  = @recipe.secondary_fermenting_duration_in_days
-%p
-  %b Recommended fermenting temperature in fahrenheit:
-  = @recipe.recommended_fermenting_temperature_in_fahrenheit
-%p
-  %b Author:
-  = @recipe.author_id
-%p
-  %b Additional notes:
-  = @recipe.additional_notes
+  %hr
 
-= link_to 'Edit', edit_recipe_path(@recipe)
-\|
-= link_to 'Back', recipes_path
+  .row
+    .col-sm-6
+      %h3 Brewing Procedure
+
+      %p
+        %b Primary Fermenting Duration:
+        = @recipe.primary_fermenting_duration_in_days
+      - if @recipe.secondary_fermenting_duration_in_days.present?
+        %p
+          %b Secondary Fermenting Duration:
+          = @recipe.secondary_fermenting_duration_in_days
+      
+    .col-sm-6
+      %h3 Brewing Schedule
+
+      %p.text-center
+        %strong
+          Total Boil Time:
+          = pluralize(@recipe.total_boil_duration_in_minutes, "minute")
+
+  %p
+    %b Fermenting Temperature:
+    #{@recipe.recommended_fermenting_temperature_in_fahrenheit}˚ F
+  %p
+    %b Author:
+    = @recipe.author_id
+  %p
+    %b Additional notes:
+    = @recipe.additional_notes
+
+  = link_to 'Edit', edit_recipe_path(@recipe)
+  \|
+  = link_to 'Back', recipes_path

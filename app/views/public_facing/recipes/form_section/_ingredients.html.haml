@@ -1,0 +1,51 @@
+%section#recipe_ingredients_wrapper
+  %h4 Ingredients
+  %table#recipe_ingredients_table.table
+    %tr
+      %th.ingredient_quantity_column
+        Quantity
+      %th
+        Units
+      %th
+        Ingredient
+      %th
+        Type
+      %th
+    = f.association :recipe_ingredients do |i|
+      %tr
+        %td
+          = i.input :quantity, :input_html => { :class => "form-control" }, :label => false
+        %td
+          = i.input :standard_unit, collection: RecipeIngredient.standard_unit_options, :label_method => :last, :value_method => :first, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
+        %td
+          = i.input :item, :input_html => { :class => "form-control" }, :label => false
+        %td
+          = i.input :ingredient_type, collection: RecipeIngredient.ingredient_types, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control" }, :label => false
+        %td
+
+  .text-center
+    #add_ingredient_btn.btn.btn-default.btn-sm
+      Add Ingredient
+
+= content_for :page_script do
+  :javascript
+    // Add Digital Address Script
+    var i = #{@recipe.recipe_ingredients.count};
+    var unit_options = '#{raw options_from_collection_for_select(RecipeIngredient.standard_unit_options, :first, :last).squish.gsub('> <', '><')}';
+    var ingredient_type_options = '#{raw options_from_collection_for_select(RecipeIngredient.ingredient_types, :first, :last).squish.gsub('> <', '><')}';
+
+    $("#add_ingredient_btn").click(function(){
+      i ++;
+      $("#recipe_ingredients_table").append('<tr><td><div class="input decimal optional recipe_recipe_ingredients_quantity"><input class="numeric decimal optional form-control" type="number" step="any" name="recipe[recipe_ingredients_attributes]['+i+'][quantity]" id="recipe_recipe_ingredients_attributes_'+i+'_quantity"></div></td><td><div class="input select optional recipe_recipe_ingredients_standard_unit"><select class="select optional form-control" name="recipe[recipe_ingredients_attributes]['+i+'][standard_unit]" id="recipe_recipe_ingredients_attributes_'+i+'_standard_unit">' + unit_options + '</select></div></td><td><div class="input string optional recipe_recipe_ingredients_item"><input class="string optional form-control" type="text" name="recipe[recipe_ingredients_attributes]['+i+'][item]" id="recipe_recipe_ingredients_attributes_'+i+'_item"></div></td><td><div class="input select optional recipe_recipe_ingredients_ingredient_type"><select class="select optional form-control" name="recipe[recipe_ingredients_attributes]['+i+'][ingredient_type]" id="recipe_recipe_ingredients_attributes_'+i+'_ingredient_type">' + ingredient_type_options + '</select></div></td><td><i class="fa fa-close remove_row_trigger"></i></td></tr>');
+    });
+
+    // Remove Row Script
+    $("#recipe_ingredients_table").on("click", ".remove_row_trigger", function() {
+      var tr = $(this).closest('tr');
+      tr.css("background-color","#CD0000");
+
+      tr.fadeOut(400, function(){
+        tr.remove();
+      });
+      return false;
+    });

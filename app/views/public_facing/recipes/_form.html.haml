@@ -5,71 +5,31 @@
     .form-group
       = f.input :name, :input_html => { :class => "form-control" }, :label => "Recipe Name"
 
+    .form-group
+      = f.input :description, :input_html => { :class => "form-control autosize" }, :label => "Recipe Description"
+
     .row
-      .col-sm-3
+      .col-sm-4
         .form-group
           = f.label :projected_volume_in_gallons, "Volume"
           .input-group
             = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
             .input-group-addon gal
-      .col-sm-3
+      .col-sm-4
         .form-group
-          = f.input :beer_style_id, collection: BeerStyle.all, :input_html => { :class => "form-control" }, :include_blank => false
-      .col-sm-3
-        .form-group
-          = f.input :recipe_type, :input_html => { :class => "form-control" }
-      .col-sm-3
+          = f.input :recipe_type, collection: Recipe.recipe_types, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control" }
+      .col-sm-4
         .form-group
           = f.input :difficulty, collection: Recipe.difficulty_options, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control"}, :label => "Recipe Difficulty"
 
-    .form-group
-      = f.input :description, :input_html => { :class => "form-control autosize" }, :label => "Recipe Description"
-    .form-group
-      = f.input :color, :input_html => { :class => "form-control" }
+    = render "public_facing/recipes/form_section/profile", :f => f
+
+    = render "public_facing/recipes/form_section/ingredients", :f => f
+
+    = render "public_facing/recipes/form_section/schedule", :f => f
+
+    = render "public_facing/recipes/form_section/fermenting", :f => f
     
-    .row
-      .col-sm-3
-        .form-group
-          = f.input :projected_international_bittering_units, :input_html => { :class => "form-control" }, :label => "IBU"
-      .col-sm-3
-        .form-group
-          = f.input :projected_original_gravity, :input_html => { :class => "form-control" }, :label => "OG"
-      .col-sm-3
-        .form-group
-          = f.input :projected_final_gravity, :input_html => { :class => "form-control" }, :label => "FG"
-      .col-sm-3
-        .form-group
-          = f.label :projected_alcohol_by_volume, "Projected ABV"
-          .input-group
-            = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
-            .input-group-addon %
-
-    .form-group
-      = f.label :total_boil_duration_in_minutes, "Boil Duration"
-      .input-group
-        = f.input :total_boil_duration_in_minutes, :input_html => { :class => "form-control" }, :label => false
-        .input-group-addon minutes
-
-    .row
-      .col-sm-4
-        .form-group
-          = f.label :recommended_fermenting_temperature_in_fahrenheit, "Fermenting Temperature"
-          .input-group
-            = f.input :recommended_fermenting_temperature_in_fahrenheit, :input_html => { :class => "form-control" }, :label => false
-            .input-group-addon ˚ F
-      .col-sm-4
-        .form-group
-          = f.label :primary_fermenting_duration_in_days, "Primary Fermenting Duration"
-          .input-group
-            = f.input :primary_fermenting_duration_in_days, :input_html => { :class => "form-control" }, :label => false
-            .input-group-addon days
-      .col-sm-4
-        .form-group
-          = f.label :secondary_fermenting_duration_in_days, "Secondary Fermenting Duration"
-          .input-group
-            = f.input :secondary_fermenting_duration_in_days, :input_html => { :class => "form-control" }, :label => false
-            .input-group-addon days
-
     .form-group
       = f.input :additional_notes, :input_html => { :class => "form-control autosize" }
 

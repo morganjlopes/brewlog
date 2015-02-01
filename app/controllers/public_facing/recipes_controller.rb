@@ -16,6 +16,7 @@ class PublicFacing::RecipesController < PublicFacingController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @recipe.recipe_ingredients.build
   end
 
   # GET /recipes/1/edit
@@ -25,7 +26,7 @@ class PublicFacing::RecipesController < PublicFacingController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
 
     respond_to do |format|
       if @recipe.save
@@ -70,6 +71,23 @@ class PublicFacing::RecipesController < PublicFacingController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :color, :difficulty, :recipe_type, :beer_style_id, :projected_volume_in_gallons, :projected_original_gravity, :projected_final_gravity, :projected_alcohol_by_volume, :projected_international_bittering_units, :total_boil_duration_in_minutes, :primary_fermenting_duration_in_days, :secondary_fermenting_duration_in_days, :recommended_fermenting_temperature_in_fahrenheit, :author_id, :additional_notes)
+      params.require(:recipe).permit(:name,
+                                     :description,
+                                     :color,
+                                     :difficulty,
+                                     :recipe_type,
+                                     :beer_style_id,
+                                     :projected_volume_in_gallons,
+                                     :projected_original_gravity,
+                                     :projected_final_gravity,
+                                     :projected_alcohol_by_volume,
+                                     :projected_international_bittering_units,
+                                     :total_boil_duration_in_minutes,
+                                     :primary_fermenting_duration_in_days,
+                                     :secondary_fermenting_duration_in_days,
+                                     :recommended_fermenting_temperature_in_fahrenheit,
+                                     :author_id,
+                                     :additional_notes,
+                                     recipe_ingredients_attributes: [:quantity, :standard_unit, :item, :ingredient_type])
     end
 end
