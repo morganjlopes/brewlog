@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "users/registrations"}
 
-
   # Admin Facing Views
   resources :beer_styles,
             :path       => "admin/beer-styles",
@@ -15,6 +14,9 @@ Rails.application.routes.draw do
             :path       => "beer-styles",
             :controller => "public_facing/beer_styles",
             :only       => [:show, :index]
+
+  resources :recipes,
+            :controller => "public_facing/recipes"
   
   resources :breweries,
             :controller => "public_facing/breweries",

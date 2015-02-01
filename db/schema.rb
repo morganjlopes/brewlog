@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131235939) do
+ActiveRecord::Schema.define(version: 20150201001802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,28 @@ ActiveRecord::Schema.define(version: 20150131235939) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "color"
+    t.integer  "difficulty",                                       default: 1
+    t.integer  "recipe_type"
+    t.integer  "beer_style_id"
+    t.decimal  "projected_volume_in_gallons"
+    t.decimal  "projected_original_gravity"
+    t.decimal  "projected_final_gravity"
+    t.decimal  "projected_alcohol_by_volume"
+    t.decimal  "projected_international_bittering_units"
+    t.integer  "total_boil_duration_in_minutes"
+    t.integer  "primary_fermenting_duration_in_days",              default: 7
+    t.integer  "secondary_fermenting_duration_in_days"
+    t.integer  "recommended_fermenting_temperature_in_fahrenheit", default: 70
+    t.integer  "author_id"
+    t.text     "additional_notes"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

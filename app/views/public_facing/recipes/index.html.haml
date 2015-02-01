@@ -1,0 +1,39 @@
+#main.container
+  %h1 Listing recipes
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Color
+        %th Difficulty
+        %th Recipe Type
+        %th Beer Style
+        %th Volume
+        %th ABV
+        %th IBUs
+        %th Author
+        %th
+        %th
+        %th
+        
+    %tbody
+      - @recipes.each do |recipe|
+        %tr
+          %td= recipe.name
+          %td= recipe.color
+          %td= recipe.difficulty
+          %td= recipe.recipe_type
+          %td= recipe.beer_style.name
+          %td= recipe.projected_volume_in_gallons
+          %td= recipe.projected_alcohol_by_volume
+          %td= recipe.projected_international_bittering_units
+          %td= recipe.author.name
+          %td= recipe.additional_notes
+          %td= link_to 'Show', recipe
+          %td= link_to 'Edit', edit_recipe_path(recipe)
+          %td= link_to 'Destroy', recipe, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Recipe', new_recipe_path, :class => "btn btn-primary"

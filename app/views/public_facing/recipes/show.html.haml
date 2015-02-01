@@ -1,0 +1,57 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @recipe.name
+%p
+  %b Description:
+  = @recipe.description
+%p
+  %b Color:
+  = @recipe.color
+%p
+  %b Difficulty:
+  = @recipe.difficulty
+%p
+  %b Recipe type:
+  = @recipe.recipe_type
+%p
+  %b Beer style:
+  = @recipe.beer_style_id
+%p
+  %b Projected volume in gallons:
+  = @recipe.projected_volume_in_gallons
+%p
+  %b Projected original gravity:
+  = @recipe.projected_original_gravity
+%p
+  %b Projected final gravity:
+  = @recipe.projected_final_gravity
+%p
+  %b Projected alcohol by volume:
+  = @recipe.projected_alcohol_by_volume
+%p
+  %b Projected international bittering units:
+  = @recipe.projected_international_bittering_units
+%p
+  %b Total boil duration in minutes:
+  = @recipe.total_boil_duration_in_minutes
+%p
+  %b Primary fermenting duration in days:
+  = @recipe.primary_fermenting_duration_in_days
+%p
+  %b Secondary fermenting duration in days:
+  = @recipe.secondary_fermenting_duration_in_days
+%p
+  %b Recommended fermenting temperature in fahrenheit:
+  = @recipe.recommended_fermenting_temperature_in_fahrenheit
+%p
+  %b Author:
+  = @recipe.author_id
+%p
+  %b Additional notes:
+  = @recipe.additional_notes
+
+= link_to 'Edit', edit_recipe_path(@recipe)
+\|
+= link_to 'Back', recipes_path
