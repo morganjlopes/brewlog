@@ -1,7 +1,7 @@
 = simple_form_for(@recipe) do |f|
   = f.error_notification
 
-  = render "public_facing/recipes/form_section/details", :f => f
+  = render "public_facing/recipes/form_section/basic_info", :f => f
 
   = render "public_facing/recipes/form_section/profile", :f => f
 

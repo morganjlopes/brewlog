@@ -22,6 +22,12 @@ class PublicFacing::RecipesController < PublicFacingController
 
   # GET /recipes/1/edit
   def edit
+    unless @recipe.recipe_ingredients.present?
+      @recipe.recipe_ingredients.build
+    end
+    unless @recipe.recipe_events.present?
+      @recipe.recipe_events.build
+    end
   end
 
   # POST /recipes
@@ -32,7 +38,7 @@ class PublicFacing::RecipesController < PublicFacingController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.html { redirect_to edit_recipe_path(@recipe), notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }

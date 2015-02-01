@@ -1,6 +1,35 @@
+#batch_header_wrapper
+  .container
+    %ul.pull-right.list-inline
+      %li
+
+    %ul.list-inline
+      %li
+        %h1
+          =link_to @recipe.name, recipe_path
+      %li
+        %h1
+          %small
+            By:
+            =link_to @recipe.author.name, ""
+
+%hr
+
 #main.container
   .row
-    .col-md-8.col-md-offset-2
-      %h1 Editing recipe
-
+    .col-sm-8
       = render 'form'
+    .col-sm-4
+      .affixable_wrapper
+        #spy-nav{"data-offset-top" => "125", "data-offset-bottom" => "100", "data-spy" => "affix"}
+          %ul.nav.nav-pills.nav-stacked
+            %li= link_to "Basic Info", "#basic_info"
+            %li= link_to "Beer Profile", "#beer_profile"
+            %li= link_to "Ingredients", "#ingredients"
+            %li= link_to "Brewing Schedule", "#brewing_schedule"
+            %li= link_to "Fermenting", "#fermenting"
+            %li= link_to "Additional", "#additional"
+
+          .back_to_top
+            = link_to "#top" do
+              Back to top

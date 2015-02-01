@@ -1,27 +1,28 @@
-%section#recipe_profile_wrapper
-  %h4 Beer Profile
-  .form-inputs
-    .row
-      .col-sm-6
-        .form-group
-          = f.input :beer_style_id, collection: BeerStyle.all, :input_html => { :class => "form-control" }, :include_blank => false
-      .col-sm-6
-        .form-group
-          = f.input :color, :input_html => { :class => "form-control" }
+%section#beer_profile
+  #recipe_profile_wrapper
+    %h4 Beer Profile
+    .form-inputs
+      .row
+        .col-sm-6
+          .form-group
+            = f.input :beer_style_id, collection: BeerStyle.all, :input_html => { :class => "form-control" }, :include_blank => false
+        .col-sm-6
+          .form-group
+            = f.input :color, :input_html => { :class => "form-control" }
 
-    .row
-      .col-sm-3
-        .form-group
-          = f.input :projected_international_bittering_units, :input_html => { :class => "form-control" }, :label => "IBU"
-      .col-sm-3
-        .form-group
-          = f.input :projected_original_gravity, :input_html => { :class => "form-control" }, :label => "OG"
-      .col-sm-3
-        .form-group
-          = f.input :projected_final_gravity, :input_html => { :class => "form-control" }, :label => "FG"
-      .col-sm-3
-        .form-group
-          = f.label :projected_alcohol_by_volume, "Projected ABV"
-          .input-group
-            = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
-            .input-group-addon %
+      .row
+        .col-sm-3
+          .form-group
+            = f.input :projected_international_bittering_units, :input_html => { :class => "form-control" }, :label => "IBU"
+        .col-sm-3
+          .form-group
+            = f.input :projected_original_gravity, :input_html => { :class => "form-control" }, :label => "OG"
+        .col-sm-3
+          .form-group
+            = f.input :projected_final_gravity, :input_html => { :class => "form-control" }, :label => "FG"
+        .col-sm-3
+          .form-group
+            = f.label :projected_alcohol_by_volume, "Projected ABV"
+            .input-group
+              = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
+              .input-group-addon %

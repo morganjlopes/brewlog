@@ -1,25 +1,26 @@
-%section#recipe_schedule_wrapper
-  %h4 Brewing Schedule
-  .form-inputs
-    %table#recipe_events_table.table
-      = f.association :recipe_events do |a|
-        %tr
-          %td.recipe_event_action_column
-            = a.input :action, collection: RecipeEvent.event_options, :label_method => :last, :value_method => :last, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
-          %td.recipe_event_subject_column
-            = a.input :subject, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
-          %td.remove_row_trigger_column
-            .fa.fa-close.remove_row_trigger
+%section#brewing_schedule
+  #recipe_schedule_wrapper
+    %h4 Brewing Schedule
+    .form-inputs
+      %table#recipe_events_table.table
+        = f.association :recipe_events do |a|
+          %tr
+            %td.recipe_event_action_column
+              = a.input :action, collection: RecipeEvent.event_options, :label_method => :last, :value_method => :last, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
+            %td.recipe_event_subject_column
+              = a.input :subject, :input_html => { :class => "form-control" }, :label => false, :include_blank => false
+            %td.remove_row_trigger_column
+              .fa.fa-close.remove_row_trigger
 
-    .text-center
-      #add_event_btn.btn.btn-default.btn-sm
-        Add Event
+      .text-center
+        #add_event_btn.btn.btn-default.btn-sm
+          Add Event
 
-    .form-group
-      = f.label :total_boil_duration_in_minutes, "Boil Duration"
-      .input-group
-        = f.input :total_boil_duration_in_minutes, :input_html => { :class => "form-control" }, :label => false
-        .input-group-addon minutes
+      .form-group
+        = f.label :total_boil_duration_in_minutes, "Boil Duration"
+        .input-group
+          = f.input :total_boil_duration_in_minutes, :input_html => { :class => "form-control" }, :label => false
+          .input-group-addon minutes
 
 = content_for :page_script do
   :javascript

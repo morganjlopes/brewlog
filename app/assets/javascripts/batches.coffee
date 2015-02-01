@@ -4,9 +4,7 @@
 
 jQuery ->
   
-  $(".alert").hide()
-  $(".alert").slideDown()
-  $(".alert-success").delay(3000).slideUp()
+  $(".alert").hide().slideDown().delay(3000).slideUp()
 
   $(".dropdown-toggle").dropdown()
   

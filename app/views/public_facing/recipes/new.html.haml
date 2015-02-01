@@ -1,6 +1,17 @@
 #main.container
   .row
-    .col-md-8.col-md-offset-2
-      %h1 New recipe
-
+    .col-sm-8
       = render 'form'
+    .col-sm-4
+      .affixable_wrapper
+        #spy-nav{"data-offset-top" => "125", "data-offset-bottom" => "100", "data-spy" => "affix"}
+          %ul.nav.nav-pills.nav-stacked
+            %li= link_to "Beer Profile", "#projections"
+            %li= link_to "Ingredients", "#brewing"
+            %li= link_to "Brewing Schedule", "#bottling"
+            %li= link_to "Fermenting", "#conditioning"
+            %li= link_to "Additional", "#conditioning"
+
+          .back_to_top
+            = link_to "#top" do
+              Back to top

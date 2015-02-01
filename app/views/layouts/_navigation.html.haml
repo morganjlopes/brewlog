@@ -16,9 +16,17 @@
         %li
           %a{:href => "#"} Shop
       %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
-            + New Batch
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            .fa.fa-plus
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              %a{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
+                + New Batch
+            %li
+              %a{:href => "", "data-target" => "#newRecipeModal", "data-toggle" => "modal", :type => "button"}
+                + New Recipe
         - if user_signed_in?
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
