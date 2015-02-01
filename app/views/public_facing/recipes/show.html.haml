@@ -1,17 +1,31 @@
+#recipe_header_wrapper
+  .container
+    %ul.pull-right.list-inline
+      %li
+        =link_to "Create Batch from Recipe", "", :class => "btn btn-primary btn-sm"
+
+    %ul.list-inline
+      %li
+        %h1
+          = @recipe.name
+      %li
+        %h1
+          %small
+            By:
+            =link_to @recipe.author.name, ""
+
+%hr
+
 #main.container
-  %h1= @recipe.name
+  %ul.list-unstyled.list-inline
+    %li= link_to @recipe.beer_style.name, beer_style_path(@recipe.beer_style)
+    %li •
+    %li= @recipe.recipe_type_as_string.titleize
+    %li •
+    %li= pluralize(@recipe.projected_volume_in_gallons, "gallon")
+
   .row
     .col-sm-6
-      %ul.list-unstyled.list-inline
-        %li= link_to @recipe.beer_style.name, beer_style_path(@recipe.beer_style)
-        %li •
-        %li= @recipe.recipe_type_as_string.titleize
-        %li •
-        %li= pluralize(@recipe.projected_volume_in_gallons, "gallon")
-
-      %p
-        By
-        =link_to @recipe.author.name, ""
       %p
         = @recipe.description
 
