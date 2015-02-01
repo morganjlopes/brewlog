@@ -14,6 +14,8 @@
           .form-inputs
             .form-group
               = f.input :name, :input_html => { :class => "form-control floatlabel"}, :placeholder => "Batch Name", :label => false
+            .form-group
+              = f.input :beer_style, collection: BeerStyle.all, :input_html => { :class => "form-control"}, :include_blank => false
             .row
               .col-sm-6
                 .form-group
@@ -30,5 +32,4 @@
                     .input-group-addon %
 
         .modal-footer
-          .form-actions
-            = f.button :submit, :class => "btn btn-primary btn-lg btn-block"
+          = f.button :submit, :class => "btn btn-primary btn-lg btn-block"
