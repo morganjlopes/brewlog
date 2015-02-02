@@ -22,4 +22,15 @@ class Batch < ActiveRecord::Base
       DIFFICULTY_DIFFICULT => "difficult"
     }
   end
+
+  def difficulty_as_string
+    case difficulty
+      when DIFFICULTY_EASY
+        "easy"
+      when DIFFICULTY_MEDIUM
+        "medium"
+      when DIFFICULTY_DIFFICULT
+        "difficuly"
+    end
+  end
 end

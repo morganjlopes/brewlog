@@ -5,7 +5,14 @@ class PublicFacing::RecipesController < PublicFacingController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    if params[:style]
+      @featured_style = BeerStyle.find_by_name "#{params[:style]}"
+      @recipes        = @featured_style.recipes.all
+    else
+      @recipes     = Recipe.all
+    end
+
+    @beer_styles = BeerStyle.all
   end
 
   # GET /recipes/1
