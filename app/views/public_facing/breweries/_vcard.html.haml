@@ -1,26 +1,27 @@
-= image_tag "brewery-600px.png"
+.vcard-wrapper
+  = image_tag "brewery-600px.png"
 
-%h2
-  = @brewery.name
+  %h2.vcard-name
+    = @brewery.name
 
--if @brewery.slogan.present?
-  %p
-    "#{@brewery.slogan}"
+  -if @brewery.slogan.present?
+    %p
+      "#{@brewery.slogan}"
 
-#brewery_data_overview
-  .row
-    .col-xs-6.text-center
-      %h3= @brewery.batches.count
-      %p Batches
-    .col-xs-6.text-center
-      %h3= @brewery.total_volume_brewed
-      %p Gallons
+  #brewery_data_overview
+    .row
+      .col-xs-6.text-center
+        %h3= @brewery.batches.count
+        %p Batches
+      .col-xs-6.text-center
+        %h3= @brewery.total_volume_brewed
+        %p Gallons
 
-%h4 Brewers
+  %h4 Brewers
 
-%table.table
-  %tr
-  - @brewery.users.each do |user|
+  %table.table
     %tr
-      %td
-        = user.email
+    - @brewery.users.each do |user|
+      %tr
+        %td
+          = user.email

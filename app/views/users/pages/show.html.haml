@@ -1,7 +1,6 @@
 #main.container
   .row
     .col-md-3
-      %h1
-        = @user.name
+      = render "users/pages/vcard"
     .col-md-9
       = render "users/pages/subnavigation"
