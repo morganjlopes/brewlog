@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history, :finders]
+  
   has_many :activities
   has_many :brewery_users
   has_many :breweries, through: :brewery_users

@@ -49,5 +49,18 @@ Rails.application.routes.draw do
     get '/members', to: 'public_facing/breweries#members', as: 'members'
   end
 
+  resources :users,
+            :controller => "users/pages",
+            :path       => "brewers",
+            :only       => [:index] do
+    member do
+      get :show
+    end
+
+  end
+
+  get 'dashboard' => 'users/pages#dashboard', as: :user_dashboard
+  get 'brewers/:id/recipes' => 'users/pages#recipes', as: :user_recipes
+
   root to: "public_facing/breweries#index"
 end

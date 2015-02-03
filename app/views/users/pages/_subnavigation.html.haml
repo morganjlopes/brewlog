@@ -1,0 +1,9 @@
+%ul.nav.nav-tabs
+  %li{:role => "presentation", :class => ("active" if @tab_title == "user_profile")}
+    = link_to user_path(@user) do
+      .fa.fa-bullhorn
+      Activity
+  %li{:role => "presentation", :class => ("active" if @tab_title == "user_recipes")}
+    = link_to user_recipes_path(@user) do
+      .fa.fa-file-text-o
+      Recipes

@@ -31,6 +31,10 @@
                 .fa.fa-file-text-o
                 New Recipe
         - if user_signed_in?
+          %li
+            = link_to "Dashboard", user_dashboard_path
+          %li
+            = link_to "My Recipes", user_recipes_path(current_user)
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               Hi,
