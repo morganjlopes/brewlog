@@ -25,6 +25,8 @@ gem "haml-rails"
 gem 'simple_form'
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'meta-tags'
+
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
 gem 'html2haml'
 

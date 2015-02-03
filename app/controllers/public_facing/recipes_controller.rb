@@ -13,11 +13,16 @@ class PublicFacing::RecipesController < PublicFacingController
     end
 
     @beer_styles = BeerStyle.all
+
+    @page_title       = "Homebrew Recipes"
+    @page_description = "Homebrew recipes from a community of homebrewers and homebrew enthusiasts."
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @page_title       = "#{@recipe.name}, a Homebrew Recipe by #{@recipe.author.name}"
+    @page_description = "#{@recipe.description}"
   end
 
   # GET /recipes/new

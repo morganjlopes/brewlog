@@ -2,12 +2,20 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title BrewLog
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
     = favicon_link_tag 'icon.png'
+
+    - set_meta_tags :site => 'All HomeBrew', :title => "#{@page_title}", :reverse => true
+    - set_meta_tags :description => "#{@page_description}"
+    - set_meta_tags :canonical => "#{request.original_url}"
+    - set_meta_tags :author => "#{request.original_url}"
+    / Open Graph Data
+    - set_meta_tags :og => {:title => "#{@page_title}", :type => '', :url => "#{request.original_url}", :image => "#{@page_image}", :canonical => "#{request.original_url}", :author => "#{request.original_url}"}
+    = display_meta_tags
+
   %body{ "data-spy" => "scroll", "data-target" => "#spy-nav"}
 
     = render "layouts/navigation"
