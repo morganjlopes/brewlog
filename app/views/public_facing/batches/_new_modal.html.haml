@@ -3,7 +3,7 @@
 #newBatchModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "newBatchModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog.modal-sm
     .modal-content
-      = simple_form_for([@brewery, @brewery.batches.new]) do |f|
+      = simple_form_for(Batch.new) do |f|
         .modal-header
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} &times;
@@ -11,25 +11,24 @@
             New Batch
         .modal-body
           = f.error_notification
-          .form-inputs
-            .form-group
-              = f.input :name, :input_html => { :class => "form-control floatlabel"}, :placeholder => "Batch Name", :label => false
-            .form-group
-              = f.input :beer_style, collection: BeerStyle.all, :input_html => { :class => "form-control"}, :include_blank => false
-            .row
-              .col-sm-6
-                .form-group
-                  = f.label :projected_volume_in_gallons, "Vol. Estimate"
-                  .input-group
-                    = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
-                    .input-group-addon
-                      gal
-              .col-sm-6
-                .form-group
-                  = f.label :projected_alcohol_by_volume, "ABV Estimate"
-                  .input-group
-                    = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
-                    .input-group-addon %
+        
+          .form-group
+            = f.input :name, :input_html => { :class => "form-control floatlabel"}, :placeholder => "Batch Name", :label => false
+          
+          .row
+            .col-sm-6
+              .form-group
+                = f.label :projected_volume_in_gallons, "Vol. Estimate"
+                .input-group
+                  = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
+                  .input-group-addon
+                    gal
+            .col-sm-6
+              .form-group
+                = f.label :projected_alcohol_by_volume, "ABV Estimate"
+                .input-group
+                  = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
+                  .input-group-addon %
 
         .modal-footer
           = f.button :submit, :class => "btn btn-primary btn-lg btn-block"

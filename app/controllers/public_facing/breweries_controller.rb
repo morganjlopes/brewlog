@@ -1,15 +1,12 @@
 require 'public_facing/public_facing_controller.rb'
 class PublicFacing::BreweriesController < PublicFacingController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_brewery, only: [:show, :edit, :update]
 
   # GET /breweries
   # GET /breweries.json
   def index
-    if current_user.breweries.count < 1
-      redirect_to new_brewery_path, :notice => "Before you start brewing..."
-    end
-    @breweries = current_user.breweries.all
+    @breweries = Brewery.all
   end
 
   def members
@@ -34,6 +31,7 @@ class PublicFacing::BreweriesController < PublicFacingController
   # GET /breweries/new
   def new
     @brewery = current_user.breweries.new
+    @brewery.name = "#{current_user.last_name} Brewhouse"
   end
 
   # GET /breweries/1/edit

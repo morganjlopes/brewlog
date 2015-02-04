@@ -5,6 +5,8 @@ class Batch < ActiveRecord::Base
   has_many :activities, as: :trackable
   
   belongs_to :brewery
+  belongs_to :recipe
+  belongs_to :author, :class_name => "User"
   belongs_to :beer_style
 
   validates_presence_of :name,

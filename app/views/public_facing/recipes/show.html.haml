@@ -2,7 +2,7 @@
   .container
     %ul.pull-right.list-inline
       %li
-        =link_to "Create Batch from Recipe", "", :class => "btn btn-primary btn-sm"
+        =link_to "Create Batch from Recipe", new_batch_path(:recipe => @recipe.id), :class => "btn btn-primary btn-sm"
 
     %ul.list-inline
       %li

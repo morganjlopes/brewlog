@@ -7,9 +7,6 @@
         %ul.list-unstyled
           %li= link_to "Beer Styles", beer_styles_path
           %li= link_to "Recipes", recipes_path
-          %li
-            %a{:href => "", "data-target" => "#newRecipeModal", "data-toggle" => "modal", :type => "button"}
-              New Recipe
       .col-sm-4
         %h4
           Brewing Community
@@ -17,3 +14,9 @@
           %li= link_to "Breweries", breweries_path
           %li= link_to "Brewers", users_path
       .col-sm-4
+
+    %hr
+
+    .text-center
+      © #{Time.now.year}
+      = link_to "All Homebrew", root_url

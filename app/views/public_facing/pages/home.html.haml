@@ -1,14 +1,17 @@
-#main.container
-  %section#introduction_section
+%section#introduction_section
+  .container
     .row
       .col-md-7
-        %h1.text-left
-          Brewing better
-          %br
-          beer, together.
-        %p.lead
-          A homebrewing collaboration bringing together homebrewers, homebrew recipes, and simple tools to help improve your brewing experience.
-          = link_to "Browse homebrew recipes.", recipes_path
+        .margin-bottom
+          %h1.text-left
+            Brewing better
+            %br
+            beer, together.
+          %p.lead
+            A homebrewing collaboration bringing together homebrewers, homebrew recipes, and simple tools to help improve your brewing experience.
+
+          = link_to "Browse homebrew recipes", recipes_path, :class => "btn btn-primary btn-lg"
+
       .col-md-5
         #home_micro_recipe_form
           %h2.text-center

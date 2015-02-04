@@ -7,6 +7,7 @@ class Recipe < ActiveRecord::Base
 
   has_many :recipe_ingredients
   has_many :recipe_events
+  has_many :batches
   
   accepts_nested_attributes_for :recipe_ingredients
   accepts_nested_attributes_for :recipe_events

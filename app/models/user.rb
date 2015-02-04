@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :access_invitations, as: :sender
   has_many :access_invitations, as: :receiver
   has_many :recipes, as: :author
+  has_many :batches, as: :author
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -18,5 +19,9 @@ class User < ActiveRecord::Base
 
   def first_name
     name.scan(/\w+/).first
+  end
+
+  def last_name
+    name.split.last
   end
 end

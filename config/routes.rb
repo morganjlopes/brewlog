@@ -22,16 +22,6 @@ Rails.application.routes.draw do
             :controller => "public_facing/breweries",
             :except     => [:destroy] do
 
-    resources :batches,
-              :controller => "public_facing/batches" do
-      
-      resources :access_invitations,
-                :path => "invites",
-                :controller => "public_facing/access_invitations",
-                :only => [:create, :destroy]
-
-    end
-
     resources :access_invitations,
               :path => "invites",
               :controller => "public_facing/access_invitations",
@@ -47,6 +37,16 @@ Rails.application.routes.draw do
     end
 
     get '/members', to: 'public_facing/breweries#members', as: 'members'
+  end
+
+  resources :batches,
+            :controller => "public_facing/batches" do
+    
+    resources :access_invitations,
+              :path => "invites",
+              :controller => "public_facing/access_invitations",
+              :only => [:create, :destroy]
+
   end
 
   resources :users,

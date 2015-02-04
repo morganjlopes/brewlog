@@ -1,12 +1,19 @@
-= simple_form_for([@brewery, @batch]) do |f|
+= simple_form_for(@batch) do |f|
   = f.error_notification
 
   .form-inputs
-
+    - if @recipe.present?
+      = f.hidden_field :recipe_id, :value => @recipe.id
+      %p.alert.alert-info
+        We've prepopulated a number of the fields based on the recipe, #{@recipe.name}, that you selected. You might need to adjust some of the projected dates if you don't plan on brewing today.
+      %br
+    - unless @batch.id.present?
+      .form-group
+        = f.input :name, :input_html => { :class => "form-control"}
     .row
       .col-sm-6
         .form-group
-          = f.input :beer_style, collection: BeerStyle.all, :input_html => { :class => "form-control"}, :include_blank => false
+          = f.association :beer_style, collection: BeerStyle.all, :input_html => { :class => "form-control"}, :include_blank => false
       .col-sm-6
         .form-group
           = f.input :difficulty, collection: Batch.difficulty_options, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control"}, :label => "Brew Difficulty"

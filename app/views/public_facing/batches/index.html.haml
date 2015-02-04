@@ -1,40 +1,22 @@
+.page-title
+  .container
+    %a.btn.btn-primary.pull-right{:href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
+      .fa.fa-file-text-o
+      New Batch
+    %h1 Batches
+
 #main.container
-  .row
-    .col-md-3
-      = render "public_facing/breweries/vcard"
-    .col-md-9
-      = render "public_facing/breweries/subnavigation"
-
-      #batch_action_wrapper
-        .row
-          .col-sm-6
-            .input-group.search_wrapper
-              %input.form-control{:placeholder => "Find a Batch...", :type => "text"}/
-              %span.input-group-btn
-                %button.btn.btn-default{:type => "button"} Search
-
-          .col-sm-6
-            %a{:class => "btn btn-primary pull-right", :href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
-              + New
-
-      %table.table
-            
-        %tbody
-          - if @batches.present?
-            - @batches.each do |batch|
-              %tr
-                %td
-                  %h3
-                    = link_to batch.name, brewery_batch_path(@brewery, batch)
-                  %p.text-muted
-                    = batch.actual_brew_date.strftime("%B %e, %Y")
-                %td
-                %td.text-right
-                  = link_to 'Edit', edit_brewery_batch_path(@brewery, batch), :class => "btn btn-default btn-sm"
-          -else
-            %tr
-              %td.text-center
-                %br
-                You haven't logged any batches yet.
-                %br
-                =link_to "Click here to log a batch.", "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"
+  #batch_action_wrapper 
+    %table.table
+          
+      %tbody
+        - @batches.each do |batch|
+          %tr
+            %td
+              %h3
+                = link_to batch.name, batch_path(batch)
+              %p.text-muted
+                = batch.actual_brew_date.strftime("%B %e, %Y")
+            %td
+            %td.text-right
+              = link_to 'Edit', edit_batch_path(batch), :class => "btn btn-default btn-sm"

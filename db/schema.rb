@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204020716) do
+ActiveRecord::Schema.define(version: 20150204115959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20150204020716) do
     t.integer  "actual_international_bittering_units"
     t.integer  "projected_international_bittering_units"
     t.integer  "beer_style_id"
+    t.integer  "author_id"
+    t.integer  "recipe_id"
   end
 
   create_table "beer_styles", force: :cascade do |t|
