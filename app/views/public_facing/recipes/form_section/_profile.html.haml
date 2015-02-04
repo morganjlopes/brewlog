@@ -16,13 +16,13 @@
             = f.input :projected_international_bittering_units, :input_html => { :class => "form-control" }, :label => "IBU"
         .col-sm-3
           .form-group
-            = f.input :projected_original_gravity, :input_html => { :class => "form-control" }, :label => "OG"
+            = f.input :projected_original_gravity, :input_html => { :class => "form-control abv_data_set" }, :label => "OG"
         .col-sm-3
           .form-group
-            = f.input :projected_final_gravity, :input_html => { :class => "form-control" }, :label => "FG"
+            = f.input :projected_final_gravity, :input_html => { :class => "form-control abv_data_set" }, :label => "FG"
         .col-sm-3
           .form-group
             = f.label :projected_alcohol_by_volume, "Projected ABV"
             .input-group
-              = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control" }, :label => false
+              = f.input :projected_alcohol_by_volume, :input_html => { :class => "form-control abv_data_set" }, :label => false
               .input-group-addon %

@@ -16,3 +16,11 @@ jQuery ->
       child.children(".recipe_recipe_events_subject").show()
 
   ).change()
+
+  $('.abv_data_set').keyup( ->
+    og = $('#recipe_projected_original_gravity').val()
+    fg = $('#recipe_projected_final_gravity').val()
+
+    abv = (og-fg) * 131.25
+    $("#recipe_projected_alcohol_by_volume").val(abv.toFixed(2))
+  ).keyup()

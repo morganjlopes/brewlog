@@ -30,27 +30,33 @@
           %td
             %strong
               OG:
+              %br
               = @recipe.projected_original_gravity
           %td
             %strong
               FG:
+              %br
               = @recipe.projected_final_gravity
           %td
             %strong
               IBU:
+              %br
               = @recipe.projected_international_bittering_units
         %tr
           %td
             %strong
               ABV:
+              %br
               = @recipe.projected_alcohol_by_volume
           %td
             %strong
               Difficulty:
+              %br
               = @recipe.difficulty_as_string.titleize
           %td
             %strong
               Color:
+              %br
               = @recipe.color
 
     .col-sm-4
