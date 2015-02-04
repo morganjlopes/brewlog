@@ -1,5 +1,4 @@
 class PublicFacingController < ApplicationController
-  before_action :authenticate_user!
   # before_action :_ensure_user_is_admin
 
   private

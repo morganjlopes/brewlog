@@ -1,4 +1,4 @@
-#recipe_header_wrapper
+#recipe_header_wrapper.page-title
   .container
     %ul.pull-right.list-inline
       %li
@@ -14,22 +14,18 @@
             By:
             =link_to @recipe.author.name, ""
 
-%hr
-
 #main.container
-  %ul.list-unstyled.list-inline
-    %li= link_to @recipe.beer_style.name, beer_style_path(@recipe.beer_style)
-    %li •
-    %li= @recipe.recipe_type_as_string.titleize
-    %li •
-    %li= pluralize(@recipe.projected_volume_in_gallons, "gallon")
-
   .row
-    .col-sm-6
-      %p
-        = @recipe.description
+    .col-sm-4
+      %h2.h2-divide Overview
+      %ul.list-unstyled.list-inline.text-center
+        %li= link_to @recipe.beer_style.name, beer_style_path(@recipe.beer_style)
+        %li •
+        %li= @recipe.recipe_type_as_string.titleize
+        %li •
+        %li= pluralize(@recipe.projected_volume_in_gallons, "gallon")
 
-      %table.table
+      %table.table.recipe_specs_table
         %tr
           %td
             %strong
@@ -51,14 +47,19 @@
           %td
             %strong
               Difficulty:
-              = @recipe.difficulty
+              = @recipe.difficulty_as_string.titleize
           %td
             %strong
               Color:
               = @recipe.color
 
-    .col-sm-6
-      %h2 Ingredients
+    .col-sm-4
+      %h2.h2-divide Description
+      %p
+        = @recipe.description
+
+    .col-sm-4
+      %h2.h2-divide Ingredients
 
       %ul.list-unstyled
         - @recipe.recipe_ingredients.order("ingredient_type desc").each do |ingredient|
@@ -72,15 +73,17 @@
 
   .row
     .col-sm-6
-      %h3 Brewing Procedure
+      %h3.h2-divide Brewing Procedure
 
       %p
         %b Primary Fermenting Duration:
         = @recipe.primary_fermenting_duration_in_days
+        days
       - if @recipe.secondary_fermenting_duration_in_days.present?
         %p
           %b Secondary Fermenting Duration:
           = @recipe.secondary_fermenting_duration_in_days
+          days
 
       %p
         %b Fermenting Temperature:
@@ -91,13 +94,15 @@
         = @recipe.additional_notes
       
     .col-sm-6
-      %h3 Brewing Schedule
+      %h3.h2-divide Brewing Schedule
 
       %ol
         - @recipe.recipe_events.each do |event|
           %li
             = event.action
             = event.subject
+
+      %hr
 
       %p.text-center
         %strong

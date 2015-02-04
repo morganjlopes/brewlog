@@ -62,5 +62,5 @@ Rails.application.routes.draw do
   get 'dashboard' => 'users/pages#dashboard', as: :user_dashboard
   get 'brewers/:id/recipes' => 'users/pages#recipes', as: :user_recipes
 
-  root to: "public_facing/breweries#index"
+  root to: "public_facing/pages#home"
 end

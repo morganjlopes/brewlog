@@ -2,12 +2,57 @@ img {
   max-width: 100%;
 }
 
+.page-title {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #595959;
+  padding: 30px;
+  h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  ul, ol {
+    margin-bottom: 0px;
+  }
+}
+
+.modal-content,
+.btn {
+  border-radius: 0px;
+}
+
+.recipe_specs_table {
+  margin-top: 20px;
+  tr:first-child {
+    td {
+      border-top: 0px;
+    }
+  }
+  td {
+    font-size: 12px;
+    border-right: 1px solid #ddd;
+    width: 33%;
+  }
+  td:last-child {
+    border-right: 0px;
+  }
+}
+
+.h2-divide {
+  border-bottom: 2px solid #666;
+  padding-bottom: 7px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
 .vcard-name {
   font-size: 26px;
 }
 
 #main {
   margin-top: 20px;
+  min-height: 250px;
 }
 
 .form-mini-wrapper {
@@ -17,6 +62,11 @@ img {
 
 .form-actions {
   margin-top: 20px;
+}
+
+.table > thead > tr > th {
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .navbar-default {
@@ -54,12 +104,17 @@ img {
   }
 }
 
+.nav-pills > li > a {
+  border-bottom: 2px solid #fff;
+}
+
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #b99d61;
-  border: 2px solid #b99d61;
+  border-bottom: 2px solid #b99d61;
   background-color: transparent;
+  border-radius: 0px;
 }
 
 .dropdown-menu > li > a {
@@ -96,12 +151,18 @@ h1,
 }
 
 .footer {
+  h4 {
+    text-transform: uppercase;
+  }
   padding-top: 40px;
   padding-bottom: 40px;
   margin-top: 100px;
   color: #767676;
   text-align: left;
   border-top: 1px solid #e5e5e5;
+  li {
+    padding: 5px 0px 5px 10px;
+  }
 }
 
 .form-control,
@@ -226,4 +287,12 @@ section {
 
 .form-inputs {
   padding: 20px 0px 20px 20px;
+}
+
+#home_micro_recipe_form {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  box-shadow: 0px 0px 2px #888;
 }

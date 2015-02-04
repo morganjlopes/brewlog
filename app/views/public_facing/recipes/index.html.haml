@@ -1,5 +1,11 @@
+.page-title
+  .container
+    %a.btn.btn-primary.pull-right{:href => "", "data-target" => "#newRecipeModal", "data-toggle" => "modal", :type => "button"}
+      .fa.fa-file-text-o
+      New Recipe
+    %h1 Recipes
+
 #main.container
-  %h1 Recipes
   .row
     .col-sm-3
       %h2 Beer Styles
@@ -9,7 +15,6 @@
             = link_to style.name, recipes_path(:style => style.name)
         %li= link_to "All Recipes", recipes_path
     .col-sm-9
-      = link_to 'New Recipe', new_recipe_path, :class => "btn btn-primary pull-right"
       - if @featured_style.present?
         %h2
           = @featured_style.name
@@ -17,25 +22,26 @@
       -else
         %h2 All Homebrew Recipes
 
-      %table.table
-        %thead
-          %tr
-            %th Name
-            %th Difficulty
-            %th Recipe Type
-            %th Volume
-            %th ABV
-            %th IBUs
-            %th Author
-            
-        %tbody
-          - @recipes.each do |recipe|
+      .table-responsive
+        %table.table
+          %thead
             %tr
-              %td= link_to recipe.name, recipe
-              %td= recipe.difficulty_as_string
-              %td= recipe.recipe_type_as_string
-              %td= pluralize(recipe.projected_volume_in_gallons, "gallon")
-              %td= number_to_percentage(recipe.projected_alcohol_by_volume, :precision => 2)
-              %td= recipe.projected_international_bittering_units
-              %td= link_to recipe.author.name, user_recipes_path(recipe.author) if recipe.author
-              %td= recipe.additional_notes
+              %th Name
+              %th Author
+              %th Difficulty
+              %th Recipe Type
+              %th Volume
+              %th ABV
+              %th IBUs
+              
+          %tbody
+            - @recipes.each do |recipe|
+              %tr
+                %td= link_to recipe.name, recipe
+                %td= link_to recipe.author.name, user_recipes_path(recipe.author) if recipe.author
+                %td= recipe.difficulty_as_string
+                %td= recipe.recipe_type_as_string
+                %td= pluralize(recipe.projected_volume_in_gallons, "gallon")
+                %td= number_to_percentage(recipe.projected_alcohol_by_volume, :precision => 2)
+                %td= recipe.projected_international_bittering_units
+                %td= recipe.additional_notes

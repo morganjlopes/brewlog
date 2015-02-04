@@ -1,0 +1,41 @@
+#main.container
+  %section#introduction_section
+    .row
+      .col-md-7
+        %h1.text-left
+          Brewing better
+          %br
+          beer, together.
+        %p.lead
+          A homebrewing collaboration bringing together homebrewers, homebrew recipes, and simple tools to help improve your brewing experience.
+          = link_to "Browse homebrew recipes.", recipes_path
+      .col-md-5
+        #home_micro_recipe_form
+          %h2.text-center
+            Start Your Recipe
+          = simple_form_for(Recipe.new) do |f|
+            = f.error_notification
+            .form-group
+              = f.input :name, :input_html => { :class => "form-control" }, :label => "Recipe Name"
+
+            .form-group
+              = f.input :description, :input_html => { :class => "form-control autosize" }, :label => "Recipe Description"
+
+            .row
+              .col-sm-6
+                .form-group
+                  = f.input :beer_style_id, collection: BeerStyle.all, :input_html => { :class => "form-control" }, :include_blank => false
+              .col-sm-6
+                .form-group
+                  = f.label :projected_volume_in_gallons, "Volume"
+                  .input-group
+                    = f.input :projected_volume_in_gallons, :input_html => { :class => "form-control" }, :label => false
+                    .input-group-addon gal
+              .col-sm-6
+                .form-group
+                  = f.input :recipe_type, collection: Recipe.recipe_types, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control" }
+              .col-sm-6
+                .form-group
+                  = f.input :difficulty, collection: Recipe.difficulty_options, :label_method => :last, :value_method => :first, :include_blank => false, :input_html => { :class => "form-control"}, :label => "Recipe Difficulty"
+
+            = f.button :submit, :class => "btn btn-primary btn-lg btn-block"

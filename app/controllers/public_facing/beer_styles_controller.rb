@@ -6,11 +6,14 @@ class PublicFacing::BeerStylesController < PublicFacingController
   # GET /beer_styles.json
   def index
     @beer_styles = BeerStyle.all
+
+    @page_title = "Beer Styles"
   end
 
   # GET /beer_styles/1
   # GET /beer_styles/1.json
   def show
+    @page_title = "#{@beer_style.name} and Homebrew Recipes for #{@beer_style.name}"
   end
 
   # GET /beer_styles/new

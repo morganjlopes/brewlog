@@ -1,3 +1,9 @@
 #main.container
   %h1
     Brewers
+
+  .row
+    - @users.each do |user|
+      .col-sm-3
+        %h3
+          = link_to user.name, user_path(user)

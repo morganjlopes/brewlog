@@ -1,6 +1,8 @@
-#main.container
-  %h1 Beer Styles
+.page-title
+  .container
+    %h1 Beer Styles
 
+#main.container
   - @beer_styles.each do |beer_style|
     %h2= beer_style.name
     %p= beer_style.description

@@ -21,4 +21,9 @@ class Users::PagesController < ApplicationController
     @page_title       = "#{@user.name} Recipes"
     @page_description = "Homebrew recipes by #{@user.name}. Check them out on allhomebrew.com."
   end
+
+  def index
+    @users = User.all
+    
+  end
 end
