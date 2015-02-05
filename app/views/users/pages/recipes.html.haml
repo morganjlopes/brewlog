@@ -5,3 +5,38 @@
 
     .col-md-9
       = render "users/pages/subnavigation"
+
+      .user_asset_action_wrapper
+        .row
+          .col-sm-6
+            .input-group
+              %input.form-control{:placeholder => "Find a Batch...", :type => "text"}/
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "button"} Search
+
+          .col-sm-6
+            %a{:class => "btn btn-primary pull-right", :href => "", "data-target" => "#newRecipeModal", "data-toggle" => "modal", :type => "button"}
+              + New
+
+      .table-responsive
+        %table.table.table-recipes
+          %thead
+            %tr
+              %th Name
+              %th Author
+              %th Difficulty
+              %th.text-right Recipe Type
+              %th.text-right Volume
+              %th.text-right ABV
+              %th.text-right IBUs
+              
+          %tbody
+            - @recipes.each do |recipe|
+              %tr
+                %td= link_to recipe.name, user_recipe_path(recipe, :author_id => @user)
+                %td= link_to recipe.author.name, user_path(recipe.author) if recipe.author
+                %td= recipe.difficulty_as_string
+                %td= recipe.recipe_type_as_string
+                %td.text-right= pluralize(recipe.projected_volume_in_gallons, "gallon")
+                %td.text-right= number_to_percentage(recipe.projected_alcohol_by_volume, :precision => 2)
+                %td.text-right= recipe.projected_international_bittering_units

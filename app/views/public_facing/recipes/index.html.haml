@@ -43,8 +43,8 @@
           %tbody
             - @recipes.each do |recipe|
               %tr
-                %td= link_to recipe.name, recipe
-                %td= link_to recipe.author.name, user_recipes_path(recipe.author) if recipe.author
+                %td= link_to recipe.name, user_recipe_path(recipe.author, recipe)
+                %td= link_to recipe.author.name, user_path(recipe.author) if recipe.author
                 %td= recipe.difficulty_as_string
                 %td= recipe.recipe_type_as_string
                 %td= pluralize(recipe.projected_volume_in_gallons, "gallon")

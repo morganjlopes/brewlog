@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   end
 
   resources :batches,
-            :controller => "public_facing/batches" do
+            :controller => "public_facing/batches",
+            :except => [:show] do
     
     resources :access_invitations,
               :path => "invites",
@@ -60,7 +61,16 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard' => 'users/pages#dashboard', as: :user_dashboard
+
+  # User Batch Routes
+  get 'brewers/:id/batches' => 'users/pages#batches', as: :user_batches
+  get 'brewers/:author_id/batches/:id' => 'public_facing/batches#show', as: :user_batch
+  get 'brewers/:author_id/batches/:id/edit' => 'public_facing/batches#edit', as: :edit_user_batch
+
+  # User Batch Routes
   get 'brewers/:id/recipes' => 'users/pages#recipes', as: :user_recipes
+  get 'brewers/:author_id/recipes/:id' => 'public_facing/recipes#show', as: :user_recipe
+  get 'brewers/:author_id/recipes/:id/edit' => 'public_facing/recipes#edit', as: :edit_user_recipe
 
   root to: "public_facing/pages#home"
 end

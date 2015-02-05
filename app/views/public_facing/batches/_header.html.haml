@@ -2,7 +2,7 @@
   .container
     %ul.pull-right.list-inline
       %li
-        =link_to "Edit Batch", edit_batch_path(@batch), :class => "btn btn-default btn-sm"
+        =link_to "Edit Batch", edit_user_batch_path(@batch, :author_id => @batch.author), :class => "btn btn-default btn-sm"
 
     %ul.list-inline
       %li
@@ -12,4 +12,4 @@
         %h1 /
       %li
         %h1
-          =link_to @batch.name, batch_path(@batch)
+          =link_to @batch.name, user_batch_path(@batch, :author_id => @batch.author)

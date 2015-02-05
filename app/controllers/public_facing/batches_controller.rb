@@ -95,7 +95,7 @@ class PublicFacing::BatchesController < PublicFacingController
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
       params.require(:batch).permit(:name,
-                                    :beer_style,
+                                    :beer_style_id,
                                     :description,
                                     :projected_volume_in_gallons,
                                     :projected_alcohol_by_volume,

@@ -14,14 +14,23 @@ class Users::PagesController < ApplicationController
 
   def recipes
     @user    = User.find(params[:id])
-    @recipes = @user.recipes.count
+    @recipes = Recipe.where(:author_id => @user.id).all
 
-    raise "#{recipes.count}"
-    
     @tab_title = "user_recipes"
 
     @page_title       = "#{@user.name} Recipes"
     @page_description = "Homebrew recipes by #{@user.name}. Check them out on allhomebrew.com."
+  end
+
+  def batches
+    @user    = User.find(params[:id])
+    @batches = Batch.where(:author_id => @user.id).all
+
+    @tab_title = "user_batches"
+
+    @page_title       = "#{@user.name} Batches"
+    @page_description = "Homebrew batches by #{@user.name}. Check them out on allhomebrew.com."
+    
   end
 
   def index

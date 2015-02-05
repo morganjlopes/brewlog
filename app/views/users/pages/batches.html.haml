@@ -6,8 +6,38 @@
     .col-md-9
       = render "users/pages/subnavigation"
 
-      %table.table
-        -@user.recipes.each do |recipe|
-          %tr
-            %td
-              = recipe.name
+      .user_asset_action_wrapper
+        .row
+          .col-sm-6
+            .input-group
+              %input.form-control{:placeholder => "Find a Batch...", :type => "text"}/
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "button"} Search
+
+          .col-sm-6
+            %a{:class => "btn btn-primary pull-right", :href => "", "data-target" => "#newBatchModal", "data-toggle" => "modal", :type => "button"}
+              + New
+
+      #batch_action_wrapper 
+        %table.table
+              
+          %tbody
+            - @batches.each do |batch|
+              %tr
+                %td
+                  %h3
+                    = link_to batch.name, user_batch_path(batch, :author_id => @user)
+                  %p.text-muted
+                    = batch.actual_brew_date.strftime("%B %e, %Y")
+                %td
+                  %strong
+                    = batch.beer_style.name if batch.beer_style.present?
+                  %br
+                  - if batch.recipe.present?
+                    %p.small
+                      from
+                      = link_to "#{batch.recipe.name} Recipe", recipe_path(batch.recipe)
+                      %br
+                      %em
+                        by
+                        = link_to "#{batch.author.name}", user_path(batch.author)

@@ -7,3 +7,7 @@
     = link_to user_recipes_path(@user) do
       .fa.fa-file-text-o
       Recipes
+  %li{:role => "presentation", :class => ("active" if @tab_title == "user_batches")}
+    = link_to user_batches_path(@user) do
+      .fa.fa-file-text-o
+      Batches

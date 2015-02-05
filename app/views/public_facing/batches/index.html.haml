@@ -14,9 +14,18 @@
           %tr
             %td
               %h3
-                = link_to batch.name, batch_path(batch)
+                = link_to batch.name, user_batch_path(batch, :author_id => batch.author)
               %p.text-muted
                 = batch.actual_brew_date.strftime("%B %e, %Y")
             %td
-            %td.text-right
-              = link_to 'Edit', edit_batch_path(batch), :class => "btn btn-default btn-sm"
+              %strong
+                = batch.beer_style.name if batch.beer_style.present?
+              %br
+              - if batch.recipe.present?
+                %p.small
+                  from
+                  = link_to "#{batch.recipe.name} Recipe", recipe_path(batch.recipe)
+                  %br
+                  %em
+                    by
+                    = link_to "#{batch.author.name}", user_path(batch.author)

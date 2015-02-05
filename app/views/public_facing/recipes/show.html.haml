@@ -1,8 +1,11 @@
 #recipe_header_wrapper.page-title
   .container
     %ul.pull-right.list-inline
+      - if @recipe.author == current_user
+        %li
+          =link_to "Edit", edit_user_recipe_path(@recipe, :author_id => @recipe.author), :class => "btn btn-default"
       %li
-        =link_to "Create Batch from Recipe", new_batch_path(:recipe => @recipe.id), :class => "btn btn-primary btn-sm"
+        =link_to "Create Batch from Recipe", new_batch_path(:recipe => @recipe.id), :class => "btn btn-primary"
 
     %ul.list-inline
       %li
@@ -12,7 +15,7 @@
         %h1
           %small
             By:
-            =link_to @recipe.author.name, ""
+            =link_to @recipe.author.name, user_path(@recipe.author)
 
 #main.container
   .row
