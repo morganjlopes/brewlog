@@ -16,7 +16,8 @@ Rails.application.routes.draw do
             :only       => [:show, :index]
 
   resources :recipes,
-            :controller => "public_facing/recipes"
+            :controller => "public_facing/recipes",
+            :except => [:show, :edit]
   
   resources :breweries,
             :controller => "public_facing/breweries",
@@ -41,7 +42,7 @@ Rails.application.routes.draw do
 
   resources :batches,
             :controller => "public_facing/batches",
-            :except => [:show] do
+            :except => [:show, :edit] do
     
     resources :access_invitations,
               :path => "invites",

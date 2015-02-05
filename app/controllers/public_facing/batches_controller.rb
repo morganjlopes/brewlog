@@ -57,7 +57,7 @@ class PublicFacing::BatchesController < PublicFacingController
     respond_to do |format|
       if @batch.save
         track_activity @batch
-        format.html { redirect_to edit_batch_path(@batch), notice: 'Batch was successfully created.' }
+        format.html { redirect_to edit_user_batch_path(@batch.author, @batch), notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
       else
         format.html { render :new }
@@ -72,7 +72,7 @@ class PublicFacing::BatchesController < PublicFacingController
     respond_to do |format|
       if @batch.update(batch_params)
         track_activity @batch
-        format.html { redirect_to edit_batch_path(@batch), notice: 'Batch was successfully updated.' }
+        format.html { redirect_to edit_user_batch_path(@batch.author, @batch), notice: 'Batch was successfully updated.' }
         format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit }
