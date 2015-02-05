@@ -1,0 +1,13 @@
+#main.container
+  .row
+    .col-md-3
+      = render "users/pages/vcard"
+
+    .col-md-9
+      = render "users/pages/subnavigation"
+
+      %table.table
+        -@user.recipes.each do |recipe|
+          %tr
+            %td
+              = recipe.name

@@ -14,8 +14,10 @@ class Users::PagesController < ApplicationController
 
   def recipes
     @user    = User.find(params[:id])
-    @recipes = @user.recipes
+    @recipes = @user.recipes.count
 
+    raise "#{recipes.count}"
+    
     @tab_title = "user_recipes"
 
     @page_title       = "#{@user.name} Recipes"

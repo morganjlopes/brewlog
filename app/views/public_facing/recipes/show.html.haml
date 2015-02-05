@@ -28,34 +28,34 @@
       %table.table.recipe_specs_table
         %tr
           %td
+            OG:
             %strong
-              OG:
               %br
               = @recipe.projected_original_gravity
           %td
+            FG:
             %strong
-              FG:
               %br
               = @recipe.projected_final_gravity
           %td
+            IBU:
             %strong
-              IBU:
               %br
-              = @recipe.projected_international_bittering_units
+              = @recipe.projected_international_bittering_units.round
         %tr
           %td
+            ABV:
             %strong
-              ABV:
               %br
-              = @recipe.projected_alcohol_by_volume
+              = number_to_percentage(@recipe.projected_alcohol_by_volume, :precision => 2)
           %td
+            Difficulty:
             %strong
-              Difficulty:
               %br
               = @recipe.difficulty_as_string.titleize
           %td
+            Color:
             %strong
-              Color:
               %br
               = @recipe.color
 

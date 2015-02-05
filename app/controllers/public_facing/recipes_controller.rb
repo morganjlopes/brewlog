@@ -1,5 +1,6 @@
 require 'public_facing/public_facing_controller.rb'
 class PublicFacing::RecipesController < PublicFacingController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
@@ -12,7 +13,7 @@ class PublicFacing::RecipesController < PublicFacingController
       @recipes     = Recipe.all
     end
 
-    @beer_styles = BeerStyle.all
+    @beer_styles = BeerStyle.all.select {|style| style.recipes.count > 0}
 
     @page_title       = "Homebrew Recipes"
     @page_description = "Homebrew recipes from a community of homebrewers and homebrew enthusiasts."
@@ -28,6 +29,10 @@ class PublicFacing::RecipesController < PublicFacingController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+
+    if params[:beer_style].present?
+      @recipe.beer_style = BeerStyle.find_by_name "#{params[:beer_style]}"
+    end
     @recipe.recipe_ingredients.build
     @recipe.recipe_events.build
   end

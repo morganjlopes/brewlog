@@ -22,8 +22,14 @@
       -else
         %h2 All Homebrew Recipes
 
+      %p.lead
+        Browse the
+        %em #{pluralize(@recipes.count, "homebrew recipe")}
+        - if @featured_style.present?
+          for #{@featured_style.name} beers
+
       .table-responsive
-        %table.table
+        %table.table.table-recipes
           %thead
             %tr
               %th Name
@@ -45,3 +51,10 @@
                 %td= number_to_percentage(recipe.projected_alcohol_by_volume, :precision => 2)
                 %td= recipe.projected_international_bittering_units
                 %td= recipe.additional_notes
+            %tr
+              %td.text-center{ :colspan => 7}
+                %br
+                - if @featured_style.present?
+                  = link_to "Add New #{@featured_style.name} Recipe", new_recipe_path(:beer_style => @featured_style.id), :class => "btn btn-primary"
+                - else
+                  = link_to "Add New Recipe", new_recipe_path, :class => "btn btn-primary"

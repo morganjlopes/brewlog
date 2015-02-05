@@ -1,3 +1,15 @@
+.page-title
+  .container
+    %ul.list-inline
+      %li
+        %h1
+          New Recipe
+      %li
+        %h1
+          %small
+            By:
+            =link_to current_user.name, ""
+
 #main.container
   .row
     .col-sm-8
